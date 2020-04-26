@@ -1,0 +1,23 @@
+{
+  "files": {
+    "main.css": "/karas-calculator/static/css/main.526fbfe6.chunk.css",
+    "main.js": "/karas-calculator/static/js/main.a37c410d.chunk.js",
+    "main.js.map": "/karas-calculator/static/js/main.a37c410d.chunk.js.map",
+    "runtime-main.js": "/karas-calculator/static/js/runtime-main.87403b49.js",
+    "runtime-main.js.map": "/karas-calculator/static/js/runtime-main.87403b49.js.map",
+    "static/js/2.e186053e.chunk.js": "/karas-calculator/static/js/2.e186053e.chunk.js",
+    "static/js/2.e186053e.chunk.js.map": "/karas-calculator/static/js/2.e186053e.chunk.js.map",
+    "index.html": "/karas-calculator/index.html",
+    "precache-manifest.39a5d0dca4668aa7556ced07b3479251.js": "/karas-calculator/precache-manifest.39a5d0dca4668aa7556ced07b3479251.js",
+    "service-worker.js": "/karas-calculator/service-worker.js",
+    "static/css/main.526fbfe6.chunk.css.map": "/karas-calculator/static/css/main.526fbfe6.chunk.css.map",
+    "static/js/2.e186053e.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.e186053e.chunk.js.LICENSE.txt",
+    "static/media/karas.svg": "/karas-calculator/static/media/karas.58446c0d.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.87403b49.js",
+    "static/js/2.e186053e.chunk.js",
+    "static/css/main.526fbfe6.chunk.css",
+    "static/js/main.a37c410d.chunk.js"
+  ]
+}
