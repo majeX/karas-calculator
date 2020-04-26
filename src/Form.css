@@ -1,0 +1,14 @@
+.b-Form__line {
+  display: flex;
+  padding: 7px 0;
+  align-items: center;
+}
+
+.b-Form__caption {
+  padding-right: 15px;
+}
+
+.b-Form__multipliers {
+  display: flex;
+  flex-wrap: wrap;
+}
