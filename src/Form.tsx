@@ -50,7 +50,7 @@ const Form: React.FC<Props> = ({
             <MultiplierInput
               key={`mult-${id}`}
               id={id}
-              value={multipliers[id] || ''}
+              value={multipliers[id] === undefined ?  '' : multipliers[id]}
               onChange={(value: number) => { onMultipliersChange({ ...multipliers, [id]: value }) }}
               onAdd={() => { setNumOfMultipliers(prevState => prevState + 1) }}
             />

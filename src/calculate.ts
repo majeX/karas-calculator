@@ -6,6 +6,8 @@ type Calculator = (c1: number, c2: number, c3: number) => Array<Result>;
 export const intOrEmpty = (value: string) => value === '' ? value : parseInt(value);
 
 export const calculate: Calculator = (c1, c2, c3) => {
+  if (c1 === 0) { return [] }
+  if (c2 === 0) { return [] }
   const xMax = Math.floor(c3 / c1);
   const results = [];
 
@@ -24,6 +26,12 @@ export const calculate: Calculator = (c1, c2, c3) => {
   return results;
 };
 
+export const calculateSingular = (c1: number, c3: number) => {
+  if (c1 === 0) { return null }
+  const result = c3 / c1;
+  return Number.isInteger(result) ? result : null;
+};
+
 export const getAllMultipliers = (multipliers: Array<number>, bonus: number) => {
   const bonusMultipliers = multipliers.map(mult => mult + bonus);
   return lodash([...multipliers, ...bonusMultipliers])
@@ -34,9 +42,15 @@ export const getAllMultipliers = (multipliers: Array<number>, bonus: number) => 
 
 export const calculateAll = (multipliers: Array<number>, target: number) => {
   const allResults = [];
+  for(let multIndex = 0; multIndex < multipliers.length; multIndex++) {
+    const mult = multipliers[multIndex];
+    const singular = calculateSingular(mult, target);
+    if (singular !== null) { allResults.push({ x: singular, y: null, c1: mult, c2: null, c3: target }) }
+  }
+
   for (let first = 0; first < multipliers.length - 1; first++) {
-    for (let second = first; second < multipliers.length; second++) {
-      const c1 = multipliers[first];
+    const c1 = multipliers[first];
+    for (let second = first + 1; second < multipliers.length; second++) {
       const c2 = multipliers[second];
       console.log('c1', c1, 'c2', c2);
       allResults.push(...calculate(c1, c2, target));
@@ -45,3 +59,4 @@ export const calculateAll = (multipliers: Array<number>, target: number) => {
   return uniqWith(allResults, isEqual);
 };
 export type CalcResults = ReturnType<typeof calculateAll>;
+

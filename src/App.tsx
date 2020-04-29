@@ -24,8 +24,11 @@ function App() {
 
     const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus);
     const calculated = calculateAll(allMultipliers, targetPoints);
+    console.log(calculated);
     setCalcResults(calculated);
   }, [adBonus, multipliers, targetPoints]);
+
+  console.log(multipliers);
 
   return (
     <div className="App">

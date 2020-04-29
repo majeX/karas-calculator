@@ -24,9 +24,10 @@ const MultiplierInput: React.FC<Props> = ({
         ? <input
             name={`multiplier-${id}`}
             type="number"
+            min={0}
             autoFocus
             value={value}
-            onChange={(e) => { onChange(intOrEmpty(e.target.value)) } }
+            onChange={(e) => { console.log(intOrEmpty(e.target.value)); onChange(intOrEmpty(e.target.value)) } }
           />
         : <div onClick={() => { setIsActive(true); onAdd() }}>+</div>
       }

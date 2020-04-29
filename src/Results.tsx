@@ -12,9 +12,13 @@ const ResultLine: React.FC<{ result: Props['results'][0] }> = ({
   <tr className="ResultLine">
     <td className="ResultLine__mult">{result.c1}x</td>
     <td className="ResultLine__score">{result.x}</td>
-    <td>&nbsp;+&nbsp;</td>
-    <td className="ResultLine__mult">{result.c2}x</td>
-    <td className="ResultLine__score">{result.y}</td>
+    {result.y !== null && (
+      <>
+        <td>&nbsp;+&nbsp;</td>
+        <td className="ResultLine__mult">{result.c2}x</td>
+        <td className="ResultLine__score">{result.y}</td>
+      </>
+    )}
   </tr>
 );
 
