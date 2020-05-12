@@ -64,7 +64,7 @@ const HintPopup: FC<Props> = () => {
       <div className="HintPopup__close" onClick={() => {
         setIsActive(false);
         setSum(0);
-      }}><img src={closeIcon} className="HintPopup__close-icon" /></div>
+      }}><img src={closeIcon} alt="Close icon" className="HintPopup__close-icon" /></div>
     </div>
   );
 };

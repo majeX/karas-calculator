@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { omit } from 'lodash';
 
 import MultiplierInput from './MultiplierInput';
@@ -27,7 +27,10 @@ const Form: React.FC<Props> = ({
   adBonus,
   onAdBonusChange,
 }) => {
-  const [numOfMultipliers, setNumOfMultipliers] = useState(Object.values(multipliers).length - 1);
+  const [numOfMultipliers, setNumOfMultipliers] = useState(0);
+  useEffect(() => {
+    setNumOfMultipliers(Object.values(multipliers).length - 1);
+  }, [multipliers]);
   return (
     <div className="b-Form">
       <div className="b-Form__line">

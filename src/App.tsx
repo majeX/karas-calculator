@@ -7,6 +7,7 @@ import Form from './Form';
 import AllWithTabs from './Results/AllWithTabs';
 import memoImg from './memo.jpg';
 import HintPopup from './Results/HintPopup';
+import { getAllLS, setLS } from './lib/localStorage';
 
 export type Multipliers = { [key: string]: number | '' };
 
@@ -29,8 +30,20 @@ function App() {
     setCalcResults(calculated);
   }, [adBonus, multipliers, targetPoints]);
 
-  useEffect(() => { calculateResults(); }, []);
+  useEffect(() => {
+    const savedValues = getAllLS();
+    if (savedValues['multipliers']) {
+      setMultipliers(savedValues['multipliers'])
+    }
+    if (savedValues['adBonus']) {
+      setAdBonus(savedValues['adBonus'])
+    }
+    if (savedValues['targetPoints']) {
+      setTargetPoints(savedValues['targetPoints'])
+    }
+  }, []);
 
+  // TODO make useLocalStorageCb
   return (
     <div className="App">
       <header className="App-header">
@@ -39,13 +52,13 @@ function App() {
 
       <Form
         multipliers={multipliers}
-        onMultipliersChange={(value: Multipliers) => { setMultipliers(value) }}
+        onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }) }}
 
         targetPoints={targetPoints}
-        onTargetPointsChange={(value: number) => { setTargetPoints(value) }}
+        onTargetPointsChange={(value: number) => { setTargetPoints(value); setLS({ targetPoints: value }) }}
 
         adBonus={adBonus}
-        onAdBonusChange={(value: number) => { setAdBonus(value) }}
+        onAdBonusChange={(value: number) => { setAdBonus(value); setLS({ adBonus: value }) }}
       />
       <div>
         <a href={memoImg} target="_blank" className="App__memo-link" rel="noopener noreferrer">Памятка</a>
