@@ -1,0 +1,18 @@
+.ResultLine {
+  font-size: 1.2rem;
+}
+
+.ResultLine__mult {
+  color: rgb(204, 124, 23);
+}
+
+.ResultLine__clickable {
+  padding: 10px;
+  border-radius: 4px;
+  border: #999999 1px dashed;
+  cursor: pointer;
+}
+
+.ResultLine__clickable-row {
+  padding-bottom: 10px;
+}

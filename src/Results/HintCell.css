@@ -1,0 +1,14 @@
+.HintCell {
+  display: inline-block;
+  margin-right: 1rem;
+  margin-bottom: 3px;
+  font-size: 1.3rem;
+}
+
+.HintCell__word {
+  color: rgb(204, 124, 23);
+}
+
+.HintCell__quantity {
+
+}

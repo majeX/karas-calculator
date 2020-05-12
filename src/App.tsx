@@ -1,10 +1,12 @@
-import React, { useCallback, useState } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 
 import { CalcResults, calculateAll, getAllMultipliers } from './calculate';
 import karas from './karas.svg';
 import './App.css';
 import Form from './Form';
-import Results from './Results';
+import AllWithTabs from './Results/AllWithTabs';
+import memoImg from './memo.jpg';
+import HintPopup from './Results/HintPopup';
 
 export type Multipliers = { [key: string]: number | '' };
 
@@ -24,11 +26,10 @@ function App() {
 
     const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus);
     const calculated = calculateAll(allMultipliers, targetPoints);
-    console.log(calculated);
     setCalcResults(calculated);
   }, [adBonus, multipliers, targetPoints]);
 
-  console.log(multipliers);
+  useEffect(() => { calculateResults(); }, []);
 
   return (
     <div className="App">
@@ -37,24 +38,32 @@ function App() {
       </header>
 
       <Form
-          multipliers={multipliers}
-          onMultipliersChange={(value: Multipliers) => { setMultipliers(value) }}
+        multipliers={multipliers}
+        onMultipliersChange={(value: Multipliers) => { setMultipliers(value) }}
 
-          targetPoints={targetPoints}
-          onTargetPointsChange={(value: number) => { setTargetPoints(value) }}
+        targetPoints={targetPoints}
+        onTargetPointsChange={(value: number) => { setTargetPoints(value) }}
 
-          adBonus={adBonus}
-          onAdBonusChange={(value: number) => { setAdBonus(value) }}
-        />
-        <button
-          className="App__submit"
-          onClick={() => calculateResults()}
-        >
-          Рассчитать
-        </button>
-        <Results
-          results={calcResults}
-        />
+        adBonus={adBonus}
+        onAdBonusChange={(value: number) => { setAdBonus(value) }}
+      />
+      <div>
+        <a href={memoImg} target="_blank" className="App__memo-link" rel="noopener noreferrer">Памятка</a>
+      </div>
+      <button
+        className="App__submit"
+        onClick={() => calculateResults()}
+      >
+        Рассчитать
+      </button>
+
+      <AllWithTabs
+        results={calcResults}
+      />
+      <HintPopup />
+      <footer className="App__footer">
+        Built by <a href="https://github.com/majeX">majeX</a>
+      </footer>
     </div>
   );
 }

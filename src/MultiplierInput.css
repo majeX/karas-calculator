@@ -1,23 +1,6 @@
 .b-MultiplierInput {}
 
-.b-MultiplierInput div {
-  width: 40px;
-  height: 40px;
-  background-color: #999999;
-  border-radius: 5px;
-  border: 1px solid #000;
-  padding: 1px;
-  cursor: pointer;
-  line-height: 40px;
-  font-size: 2rem;
-  text-align: center;
-}
-
 .b-MultiplierInput input {
-  width: 3.5rem;
-}
-
-.b-MultiplierInput div,
-.b-MultiplierInput input {
+  width: 4.5rem;
   margin-right: 10px;
 }

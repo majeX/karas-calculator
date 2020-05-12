@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
+import { omit } from 'lodash';
 
 import MultiplierInput from './MultiplierInput';
 import { Multipliers } from './App';
-import './Form.css';
 import { intOrEmpty } from './calculate';
+import './Form.css';
 
 type Props = {
   multipliers: Multipliers,
@@ -26,9 +27,9 @@ const Form: React.FC<Props> = ({
   adBonus,
   onAdBonusChange,
 }) => {
-  const [numOfMultipliers, setNumOfMultipliers] = useState(0);
+  const [numOfMultipliers, setNumOfMultipliers] = useState(Object.values(multipliers).length - 1);
   return (
-    <div>
+    <div className="b-Form">
       <div className="b-Form__line">
         <div className="b-Form__caption">
           Сколько нужно набрать
@@ -52,9 +53,20 @@ const Form: React.FC<Props> = ({
               id={id}
               value={multipliers[id] === undefined ?  '' : multipliers[id]}
               onChange={(value: number) => { onMultipliersChange({ ...multipliers, [id]: value }) }}
-              onAdd={() => { setNumOfMultipliers(prevState => prevState + 1) }}
             />
           ))}
+          <div
+            onClick={() => { setNumOfMultipliers(prevState => prevState + 1) }}
+            className="b-Form__mult-plus"
+          >
+            +
+          </div>
+          <div
+            onClick={() => { setNumOfMultipliers(prevState => prevState - 1); onMultipliersChange(omit(multipliers, String(numOfMultipliers))); }}
+            className="b-Form__mult-minus"
+          >
+            -
+          </div>
         </div>
       </div>
       <div className="b-Form__line">

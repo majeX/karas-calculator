@@ -1,0 +1,38 @@
+.HintPopup {
+  position: fixed;
+  top: 25px;
+  bottom: 25px;
+  left: 25px;
+  right: 25px;
+  z-index: 10;
+  border-radius: 8px;
+  border: 2px black solid;
+  padding: 30px;
+  background-color: #444958;
+  overflow: hidden;
+}
+
+.HintPopup__content {
+  height: calc(100vh - 50px);
+  overflow: scroll;
+}
+
+.HintPopup__close {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.HintPopup__close-icon {
+  padding: 15px;
+  cursor: pointer;
+  width: 60px;
+}
+
+.HintPopup__table td {
+  padding: 7px 0;
+}
+
+.HintPopup__table tr:nth-child(2n) {
+  background-color: #53576c;
+}

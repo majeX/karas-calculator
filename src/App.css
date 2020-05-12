@@ -60,3 +60,22 @@
   height: 40px;
   font-size: 1.4rem;
 }
+
+.App__memo-link {
+  color: inherit;
+  font-size: 1.4rem;
+}
+
+.App__memo-link::after {
+  margin-left: 5px;
+  content: "\29C9";
+}
+
+.App__footer {
+  padding-top: 20px;
+  text-align: center;
+}
+
+.App__footer a {
+  color: #46b9e7;
+}

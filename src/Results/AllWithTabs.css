@@ -1,0 +1,23 @@
+.b-Tabs {}
+
+.b-Tabs__headers {
+  display: flex;
+  list-style: none;
+  margin: 20px 0;
+  padding: 0;
+}
+
+.b-Tabs__header {
+  margin-right: 15px;
+  font-size: 1.4rem;
+  line-height: 1.5;
+  border-bottom-width: 1px;
+  border-bottom-style: solid;
+  border-bottom-color: inherit;
+  cursor: pointer;
+}
+
+.b-Tabs__header.active {
+  font-weight: bold;
+  color: rgb(204, 124, 23);
+}

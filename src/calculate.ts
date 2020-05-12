@@ -1,6 +1,6 @@
 import lodash, { uniqWith, isEqual } from 'lodash';
 
-type Result = { x: number, y: number, c1: number, c2: number, c3: number };
+type Result = { x: number, y: number | null, c1: number, c2: number | null, c3: number };
 type Calculator = (c1: number, c2: number, c3: number) => Array<Result>;
 
 export const intOrEmpty = (value: string) => value === '' ? value : parseInt(value);
@@ -45,14 +45,13 @@ export const calculateAll = (multipliers: Array<number>, target: number) => {
   for(let multIndex = 0; multIndex < multipliers.length; multIndex++) {
     const mult = multipliers[multIndex];
     const singular = calculateSingular(mult, target);
-    if (singular !== null) { allResults.push({ x: singular, y: null, c1: mult, c2: null, c3: target }) }
+    if (singular !== null) { allResults.push({ x: singular, y: null, c1: mult, c2: null, c3: target } as Result) }
   }
 
   for (let first = 0; first < multipliers.length - 1; first++) {
     const c1 = multipliers[first];
     for (let second = first + 1; second < multipliers.length; second++) {
       const c2 = multipliers[second];
-      console.log('c1', c1, 'c2', c2);
       allResults.push(...calculate(c1, c2, target));
     }
   }
