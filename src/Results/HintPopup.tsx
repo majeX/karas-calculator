@@ -46,6 +46,7 @@ const HintPopup: FC<Props> = () => {
   return (
     <div className="HintPopup">
       <div className="HintPopup__content">
+        <h2>Надо набрать {sum} очков</h2>
         <table className="HintPopup__table">
           <tbody>
             {cachedCalculations.map(({ c2i, c3i, c4i, c5i }) => (
