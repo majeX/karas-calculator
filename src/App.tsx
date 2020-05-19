@@ -8,6 +8,7 @@ import AllWithTabs from './Results/AllWithTabs';
 import memoImg from './memo.jpg';
 import HintPopup from './Results/HintPopup';
 import { getAllLS, setLS } from './lib/localStorage';
+import Footer from './Footer';
 
 export type Multipliers = { [key: string]: number | '' };
 
@@ -74,9 +75,7 @@ function App() {
         results={calcResults}
       />
       <HintPopup />
-      <footer className="App__footer">
-        Built by <a href="https://github.com/majeX">majeX</a>; v1.1
-      </footer>
+      <Footer />
     </div>
   );
 }

@@ -1,0 +1,16 @@
+.Changelog h3 {
+  color: rgb(204, 124, 23);
+}
+
+.Changelog .Changelog__back-to-calc {
+  color: white;
+  font-size: 1.1rem;
+}
+
+.Changelog li {
+  padding-bottom: 20px;
+}
+
+.Changelog li img {
+  max-width: 60%;
+}
