@@ -8,10 +8,21 @@ type Props = {
   useCache?: boolean,
 };
 
-const showHintPopup = (event: MouseEvent<HTMLTableCellElement>) => {
-  const target = event.currentTarget as HTMLTableCellElement;
-  const sum = parseInt(target.getAttribute('data-sum') || '0');
-  const showPopupEvent = new CustomEvent<{ sum: number }>('openHint', { bubbles: true, detail: { sum } });
+export type EventDetails = {
+  x: number,
+  c1: number,
+  y: number | null,
+  c2: number | null,
+}
+const showHintPopup = (event: MouseEvent<HTMLTableRowElement>) => {
+  const target = event.currentTarget as HTMLTableRowElement;
+  const x = parseInt(target.getAttribute('data-x') || '0');
+  const c1 = parseInt(target.getAttribute('data-c1') || '0');
+  const y = target.getAttribute('data-y') === null ? null : parseInt(target.getAttribute('data-y') || '0');
+  const c2 = target.getAttribute('data-c2') === null ? null : parseInt(target.getAttribute('data-c2') || '0');
+  const showPopupEvent = new CustomEvent<EventDetails>('openHint', { bubbles: true, detail: {
+    x, c1, y, c2
+  } });
   document.dispatchEvent(showPopupEvent);
 }
 
@@ -20,20 +31,27 @@ const ResultLine: React.FC<{
 }> = ({
   result,
 }) => (
-  <tr className="ResultLine ResultLine__clickable-row">
-    <td onClick={showHintPopup} data-sum={result.x} className="ResultLine__clickable">
+  <tr
+    className="ResultLine ResultLine__clickable-row"
+    onClick={showHintPopup}
+    data-x={result.x}
+    data-c1={result.c1}
+    data-y={result.y}
+    data-c2={result.c2}
+  >
+    <td className="ResultLine__clickable">
       <span className="ResultLine__mult">{result.c1}x</span>
       <span className="ResultLine__score">{result.x}</span>
     </td>
-    {result.y !== null && (
+    {result.y !== null ? (
       <>
         <td><span>&nbsp;+&nbsp;</span></td>
-        <td onClick={showHintPopup} data-sum={result.y} className="ResultLine__clickable">
+        <td className="ResultLine__clickable">
           <span className="ResultLine__mult">{result.c2}x</span>
           <span className="ResultLine__score">{result.y}</span>
         </td>
       </>
-    )}
+    ) : <><td></td><td></td></>}
   </tr>
 );
 
@@ -59,7 +77,7 @@ const SimpleResultLine: React.FC<{
 
 const Wrapper: React.FC = ({ children }) => (
   <code>
-    <table>
+    <table className="ResultLine__table">
       <tbody>
         {children}
       </tbody>

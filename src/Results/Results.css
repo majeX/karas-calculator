@@ -9,10 +9,13 @@
 .ResultLine__clickable {
   padding: 10px;
   border-radius: 4px;
-  border: #999999 1px dashed;
-  cursor: pointer;
+}
+
+.ResultLine__table {
+  border-collapse: collapse;
 }
 
 .ResultLine__clickable-row {
-  padding-bottom: 10px;
+  border: #999999 1px dashed;
+  cursor: pointer;
 }

@@ -1,62 +1,72 @@
-import React, { FC, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useEffect, useState } from 'react';
 
 import './HintPopup.css';
 import './HintCell.css'
 import { cache } from '../cache';
 import closeIcon from './close-icon.svg';
+import { EventDetails } from './Results';
+import HintPopupCell from './HintPopupCell';
 
 type Props = {
 };
 
-const HintCell: FC<{ wordLength: number, quantity: number }> = ({
-  wordLength,
-  quantity,
-}) => {
-  if (quantity === 0) { return null }
-  return (
-    <span className="HintCell">
-      <span className="HintCell__word">{wordLength} букв&nbsp;x&nbsp;</span>
-      <span className="HintCell__quantity">{quantity};</span>
-    </span>
-  )
-};
+const getHeader = ({x, y, c1, c2}: Partial<EventDetails>) => {
+  const base = <th>
+    <span className="HintPopup__highlight-sum">{x}</span>
+    &nbsp;очков с множителем <span className="HintPopup__highlight-mult">{c1}</span>
+  </th>
+  let add: ReactNode = "";
+  if (y !== null) {
+    add = <th>
+      <span className="HintPopup__highlight-sum">{y}</span> очков с множителем
+      <span className="HintPopup__highlight-mult">&nbsp;{c2}</span>
+    </th>
+  }
+  return <>
+    {base} {add}
+  </>
+}
 
 const HintPopup: FC<Props> = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
-  const [sum, setSum] = useState<number>(0);
+  const [sumDetails, setSumDetails] = useState<Partial<EventDetails>>({});
   useEffect(() => {
-    document.addEventListener('openHint', (e: CustomEventInit<{ sum: number }>) => {
+    document.addEventListener('openHint', (e: CustomEventInit<EventDetails>) => {
       if (e.detail) {
         setIsActive(true);
-        setSum(e.detail.sum);
+        setSumDetails(e.detail);
       }
     });
   }, [])
-  if (!isActive || sum === 0) {
+  const x = sumDetails.x;
+  const y = sumDetails.y;
+  if (!isActive || x === 0 || x === undefined) {
     return null;
   }
 
-  const cachedCalculations = cache[sum];
-  if (cachedCalculations === undefined || cachedCalculations.length === 0) {
-    setSum(0);
+  const cachedCalculationsX = cache[x];
+  const cachedCalculationsY = (y === undefined || y === null) ? [] : cache[y];
+  if (cachedCalculationsX === undefined || cachedCalculationsX.length === 0) {
+    setSumDetails({});
     setIsActive(false);
     return null;
   }
+  const rowsLength = Math.max(cachedCalculationsX.length, cachedCalculationsY.length);
 
   return (
     <div className="HintPopup">
       <div className="HintPopup__content">
-        <h2>Надо набрать {sum} очков</h2>
         <table className="HintPopup__table">
+          <thead>
+            <tr>
+              {getHeader(sumDetails)}
+            </tr>
+          </thead>
           <tbody>
-            {cachedCalculations.map(({ c2i, c3i, c4i, c5i }) => (
-              <tr key={`${c2i}-${c3i}-${c4i}-${c5i}`}>
-                <td>
-                  <HintCell wordLength={2} quantity={c2i} />
-                  <HintCell wordLength={3} quantity={c3i} />
-                  <HintCell wordLength={4} quantity={c4i} />
-                  <HintCell wordLength={5} quantity={c5i} />
-                </td>
+            {Array(rowsLength).fill(0).map((_, id) => (
+              <tr key={`${id}-${rowsLength}-${x}-${y}`}>
+                <HintPopupCell key={`${id}-x`} row={cachedCalculationsX[id]} />
+                <HintPopupCell key={`${id}-y`} row={cachedCalculationsY[id]} />
               </tr>
             ))}
           </tbody>
@@ -64,7 +74,7 @@ const HintPopup: FC<Props> = () => {
       </div>
       <div className="HintPopup__close" onClick={() => {
         setIsActive(false);
-        setSum(0);
+        setSumDetails({});
       }}><img src={closeIcon} alt="Close icon" className="HintPopup__close-icon" /></div>
     </div>
   );
