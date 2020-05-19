@@ -1,27 +1,35 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e0823b35523fb17cec976bc808938fd6",
+    "revision": "20dfc5ede4fe934f3a7d14dca101908b",
     "url": "/karas-calculator/index.html"
   },
   {
-    "revision": "aff99052910f17883a97",
+    "revision": "4ceab1777ef48cc4afb1",
     "url": "/karas-calculator/static/css/main.f457244b.chunk.css"
   },
   {
-    "revision": "498eb637e7100aeb5eca",
-    "url": "/karas-calculator/static/js/2.3cff260c.chunk.js"
+    "revision": "e124acbe329da42aa2d8",
+    "url": "/karas-calculator/static/js/2.2f40f569.chunk.js"
   },
   {
     "revision": "117d65892edc8adcd29d4a0d57b5a80a",
-    "url": "/karas-calculator/static/js/2.3cff260c.chunk.js.LICENSE.txt"
+    "url": "/karas-calculator/static/js/2.2f40f569.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "aff99052910f17883a97",
-    "url": "/karas-calculator/static/js/main.86033ada.chunk.js"
+    "revision": "4ceab1777ef48cc4afb1",
+    "url": "/karas-calculator/static/js/main.b53305cd.chunk.js"
   },
   {
     "revision": "51257865e15c62821f7c",
     "url": "/karas-calculator/static/js/runtime-main.87403b49.js"
+  },
+  {
+    "revision": "57187826307c4e3b5bcb498c2c26f46c",
+    "url": "/karas-calculator/static/media/after.57187826.jpeg"
+  },
+  {
+    "revision": "e4af57310afddd3de7348758afb5d913",
+    "url": "/karas-calculator/static/media/before.e4af5731.jpeg"
   },
   {
     "revision": "3e8fb85d207f959eda21c055e98805dc",
