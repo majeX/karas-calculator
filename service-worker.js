@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/karas-calculator/precache-manifest.e63f5c8a2e6177a3435f80e045096b52.js"
+  "/karas-calculator/precache-manifest.5a0392ab4552040f8d62bd6e26e4e487.js"
 );
 
 self.addEventListener('message', (event) => {
