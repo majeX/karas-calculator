@@ -6,6 +6,8 @@ import karas from '../karas.svg';
 
 import sort from './1.2/sort.png';
 import results from './1.2/results.png';
+import before121 from './1.2.1/before.jpeg';
+import after121 from './1.2.1/after.jpeg';
 
 type Props = {};
 
@@ -19,6 +21,22 @@ const Changelog: FC<Props> = () => {
       </header>
       <section>
         <Link to="/" className="Changelog__back-to-calc">Назад в калькулятор</Link>
+      </section>
+      <section>
+        <h3>1.2.1</h3>
+        <ul>
+          <li>
+            Исправлена ошибка, при которой в подсказке варианты из правого столбца съезжали влево.
+            <br />
+            <br />
+            Было:<br/>
+            <a href={before121} rel="noopener noreferrer" target="_blank"><img src={before121} alt="before" /></a>
+            <br/>
+            Стало:<br/>
+            <a href={after121} rel="noopener noreferrer" target="_blank"><img src={after121} alt="after" /></a>
+
+          </li>
+        </ul>
       </section>
       <section>
         <h3>1.2</h3>

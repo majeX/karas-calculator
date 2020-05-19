@@ -22,7 +22,7 @@ type Props = {
 const HintPopupCell: FC<Props> = ({
   row,
 }) => {
-  if (row === undefined) { return null; }
+  if (row === undefined) { return <td />; }
   const { c2i, c3i, c4i, c5i } = row;
   return (
     <td>

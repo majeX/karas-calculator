@@ -52,6 +52,7 @@ const HintPopup: FC<Props> = () => {
     return null;
   }
   const rowsLength = Math.max(cachedCalculationsX.length, cachedCalculationsY.length);
+  const doubleColumn = y !== null && y !== undefined;
 
   return (
     <div className="HintPopup">
@@ -66,7 +67,9 @@ const HintPopup: FC<Props> = () => {
             {Array(rowsLength).fill(0).map((_, id) => (
               <tr key={`${id}-${rowsLength}-${x}-${y}`}>
                 <HintPopupCell key={`${id}-x`} row={cachedCalculationsX[id]} />
-                <HintPopupCell key={`${id}-y`} row={cachedCalculationsY[id]} />
+                {doubleColumn && (
+                  <HintPopupCell key={`${id}-y`} row={cachedCalculationsY[id]}/>
+                )}
               </tr>
             ))}
           </tbody>
