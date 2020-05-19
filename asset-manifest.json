@@ -1,25 +1,27 @@
 {
   "files": {
-    "main.css": "/karas-calculator/static/css/main.dae94455.chunk.css",
-    "main.js": "/karas-calculator/static/js/main.dcfcfc89.chunk.js",
-    "main.js.map": "/karas-calculator/static/js/main.dcfcfc89.chunk.js.map",
+    "main.css": "/karas-calculator/static/css/main.f457244b.chunk.css",
+    "main.js": "/karas-calculator/static/js/main.9afad63a.chunk.js",
+    "main.js.map": "/karas-calculator/static/js/main.9afad63a.chunk.js.map",
     "runtime-main.js": "/karas-calculator/static/js/runtime-main.87403b49.js",
     "runtime-main.js.map": "/karas-calculator/static/js/runtime-main.87403b49.js.map",
-    "static/js/2.dcc94bec.chunk.js": "/karas-calculator/static/js/2.dcc94bec.chunk.js",
-    "static/js/2.dcc94bec.chunk.js.map": "/karas-calculator/static/js/2.dcc94bec.chunk.js.map",
+    "static/js/2.35bc5f43.chunk.js": "/karas-calculator/static/js/2.35bc5f43.chunk.js",
+    "static/js/2.35bc5f43.chunk.js.map": "/karas-calculator/static/js/2.35bc5f43.chunk.js.map",
     "index.html": "/karas-calculator/index.html",
-    "precache-manifest.c59c5543c3f27d6c7d8a88ee439f084c.js": "/karas-calculator/precache-manifest.c59c5543c3f27d6c7d8a88ee439f084c.js",
+    "precache-manifest.e63f5c8a2e6177a3435f80e045096b52.js": "/karas-calculator/precache-manifest.e63f5c8a2e6177a3435f80e045096b52.js",
     "service-worker.js": "/karas-calculator/service-worker.js",
-    "static/css/main.dae94455.chunk.css.map": "/karas-calculator/static/css/main.dae94455.chunk.css.map",
-    "static/js/2.dcc94bec.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.dcc94bec.chunk.js.LICENSE.txt",
+    "static/css/main.f457244b.chunk.css.map": "/karas-calculator/static/css/main.f457244b.chunk.css.map",
+    "static/js/2.35bc5f43.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.35bc5f43.chunk.js.LICENSE.txt",
     "static/media/close-icon.svg": "/karas-calculator/static/media/close-icon.3e8fb85d.svg",
     "static/media/karas.svg": "/karas-calculator/static/media/karas.58446c0d.svg",
-    "static/media/memo.jpg": "/karas-calculator/static/media/memo.c677f0ba.jpg"
+    "static/media/memo.jpg": "/karas-calculator/static/media/memo.c677f0ba.jpg",
+    "static/media/results.png": "/karas-calculator/static/media/results.f38e186e.png",
+    "static/media/sort.png": "/karas-calculator/static/media/sort.6b5bf18f.png"
   },
   "entrypoints": [
     "static/js/runtime-main.87403b49.js",
-    "static/js/2.dcc94bec.chunk.js",
-    "static/css/main.dae94455.chunk.css",
-    "static/js/main.dcfcfc89.chunk.js"
+    "static/js/2.35bc5f43.chunk.js",
+    "static/css/main.f457244b.chunk.css",
+    "static/js/main.9afad63a.chunk.js"
   ]
 }
