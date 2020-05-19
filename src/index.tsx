@@ -1,6 +1,6 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 
 import './index.css';
 import App from './App';
@@ -9,7 +9,7 @@ import Changelog from './Changelog/Changelog';
 
 ReactDOM.render(
   <React.StrictMode>
-    <BrowserRouter basename="/karas-calculator">
+    <HashRouter>
       <Switch>
         <Route path="/changelog">
           <Changelog />
@@ -18,7 +18,7 @@ ReactDOM.render(
           <App />
         </Route>
       </Switch>
-    </BrowserRouter>
+    </HashRouter>
   </React.StrictMode>,
   document.getElementById('root')
 );
