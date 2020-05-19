@@ -75,7 +75,7 @@ function App() {
       />
       <HintPopup />
       <footer className="App__footer">
-        Built by <a href="https://github.com/majeX">majeX</a>
+        Built by <a href="https://github.com/majeX">majeX</a>; v1.1
       </footer>
     </div>
   );
