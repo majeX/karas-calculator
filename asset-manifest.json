@@ -1,17 +1,17 @@
 {
   "files": {
-    "main.css": "/karas-calculator/static/css/main.f457244b.chunk.css",
-    "main.js": "/karas-calculator/static/js/main.b53305cd.chunk.js",
-    "main.js.map": "/karas-calculator/static/js/main.b53305cd.chunk.js.map",
+    "main.css": "/karas-calculator/static/css/main.686fcd8f.chunk.css",
+    "main.js": "/karas-calculator/static/js/main.745382e8.chunk.js",
+    "main.js.map": "/karas-calculator/static/js/main.745382e8.chunk.js.map",
     "runtime-main.js": "/karas-calculator/static/js/runtime-main.87403b49.js",
     "runtime-main.js.map": "/karas-calculator/static/js/runtime-main.87403b49.js.map",
-    "static/js/2.2f40f569.chunk.js": "/karas-calculator/static/js/2.2f40f569.chunk.js",
-    "static/js/2.2f40f569.chunk.js.map": "/karas-calculator/static/js/2.2f40f569.chunk.js.map",
+    "static/js/2.f5eb92e2.chunk.js": "/karas-calculator/static/js/2.f5eb92e2.chunk.js",
+    "static/js/2.f5eb92e2.chunk.js.map": "/karas-calculator/static/js/2.f5eb92e2.chunk.js.map",
     "index.html": "/karas-calculator/index.html",
-    "precache-manifest.6c380b56c6c5c78aacc4f739f15eab4b.js": "/karas-calculator/precache-manifest.6c380b56c6c5c78aacc4f739f15eab4b.js",
+    "precache-manifest.5ee0745f4091f61b2664f335b862f8df.js": "/karas-calculator/precache-manifest.5ee0745f4091f61b2664f335b862f8df.js",
     "service-worker.js": "/karas-calculator/service-worker.js",
-    "static/css/main.f457244b.chunk.css.map": "/karas-calculator/static/css/main.f457244b.chunk.css.map",
-    "static/js/2.2f40f569.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.2f40f569.chunk.js.LICENSE.txt",
+    "static/css/main.686fcd8f.chunk.css.map": "/karas-calculator/static/css/main.686fcd8f.chunk.css.map",
+    "static/js/2.f5eb92e2.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.f5eb92e2.chunk.js.LICENSE.txt",
     "static/media/after.jpeg": "/karas-calculator/static/media/after.57187826.jpeg",
     "static/media/before.jpeg": "/karas-calculator/static/media/before.e4af5731.jpeg",
     "static/media/close-icon.svg": "/karas-calculator/static/media/close-icon.3e8fb85d.svg",
@@ -22,8 +22,8 @@
   },
   "entrypoints": [
     "static/js/runtime-main.87403b49.js",
-    "static/js/2.2f40f569.chunk.js",
-    "static/css/main.f457244b.chunk.css",
-    "static/js/main.b53305cd.chunk.js"
+    "static/js/2.f5eb92e2.chunk.js",
+    "static/css/main.686fcd8f.chunk.css",
+    "static/js/main.745382e8.chunk.js"
   ]
 }
