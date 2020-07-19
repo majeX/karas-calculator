@@ -23,6 +23,14 @@ const Changelog: FC<Props> = () => {
         <Link to="/" className="Changelog__back-to-calc">Назад в калькулятор</Link>
       </section>
       <section>
+        <h3>1.2.2</h3>
+        <ul>
+          <li>
+            Теперь при изменении чисел в формах результаты будут очищаться. Привет всем, кто забывал нажать "Расчитать", я всё сделал :)
+          </li>
+        </ul>
+      </section>
+      <section>
         <h3>1.2.1</h3>
         <ul>
           <li>

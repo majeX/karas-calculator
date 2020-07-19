@@ -44,6 +44,10 @@ function App() {
     }
   }, []);
 
+  const resetCalc = useCallback(() => {
+    setCalcResults([]);
+  }, [setCalcResults]);
+
   // TODO make useLocalStorageCb
   return (
     <div className="App">
@@ -53,13 +57,13 @@ function App() {
 
       <Form
         multipliers={multipliers}
-        onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }) }}
+        onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }); resetCalc(); }}
 
         targetPoints={targetPoints}
-        onTargetPointsChange={(value: number) => { setTargetPoints(value); setLS({ targetPoints: value }) }}
+        onTargetPointsChange={(value: number) => { setTargetPoints(value); setLS({ targetPoints: value }); resetCalc(); }}
 
         adBonus={adBonus}
-        onAdBonusChange={(value: number) => { setAdBonus(value); setLS({ adBonus: value }) }}
+        onAdBonusChange={(value: number) => { setAdBonus(value); setLS({ adBonus: value }); resetCalc(); }}
       />
       <div>
         <a href={memoImg} target="_blank" className="App__memo-link" rel="noopener noreferrer">Памятка</a>

@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import './Clanquest.css';
 import karas from '../karas.svg';
-import { intOrEmpty, calcQuestResults } from '../calculate';
+import { calcQuestResults } from '../calculate';
 import { getAllLS, setLS } from '../lib/localStorage';
 
 type Props = {};

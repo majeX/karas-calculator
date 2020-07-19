@@ -6,7 +6,7 @@ type Props = {};
 const Footer: FC<Props> = () => {
   return (
     <footer className="App__footer">
-      Built by <a href="https://github.com/majeX">majeX</a>; v1.2.1.&nbsp;
+      Built by <a href="https://github.com/majeX">majeX</a>; v1.2.2.&nbsp;
       <Link to="/changelog">Changelog</Link>
     </footer>
   );
