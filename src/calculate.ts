@@ -1,4 +1,5 @@
 import lodash, { uniqWith, isEqual } from 'lodash';
+import { PointsRows } from './Clanquest/Clanquest';
 
 type Result = { x: number, y: number | null, c1: number, c2: number | null, c3: number };
 type Calculator = (c1: number, c2: number, c3: number) => Array<Result>;
@@ -66,3 +67,15 @@ export const calculateAll = (multipliers: Array<number>, target: number) => {
 };
 export type CalcResults = ReturnType<typeof calculateAll>;
 
+export const calcQuestResults = (questPoints: number | '', pointRows: PointsRows) => {
+  const pointsSum = pointRows.reduce(
+    (sum, { points, people }) => (
+      sum + ((points || 0) * (people || 0))
+    ),
+    0
+  );
+  return {
+    pointsSum,
+    pointsDiff: ((questPoints || 0) - pointsSum)
+  }
+}

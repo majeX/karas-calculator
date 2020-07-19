@@ -6,6 +6,7 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 import Changelog from './Changelog/Changelog';
+import Clanquest from './Clanquest/Clanquest';
 
 ReactDOM.render(
   <React.StrictMode>
@@ -13,6 +14,9 @@ ReactDOM.render(
       <Switch>
         <Route path="/changelog">
           <Changelog />
+        </Route>
+        <Route path="/clanquest">
+          <Clanquest />
         </Route>
         <Route path="/">
           <App />

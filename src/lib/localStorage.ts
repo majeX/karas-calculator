@@ -1,4 +1,10 @@
-const KEYS = ['multipliers', 'targetPoints', 'adBonus'] as const;
+const KEYS = [
+  'multipliers',
+  'targetPoints',
+  'adBonus',
+  'questPoints',
+  'pointsRows',
+] as const;
 
 type SetValueAll = {
   [key in typeof KEYS[number]]: any;
