@@ -1,4 +1,5 @@
 import React, { useCallback, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 import { CalcResults, calculateAll, getAllMultipliers } from './calculate';
 import karas from './karas.svg';
@@ -52,7 +53,9 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={karas} className="App-logo" alt="logo" />
+        <Link to="/">
+          <img src={karas} className="App-logo" alt="logo" />
+        </Link>
       </header>
 
       <Form

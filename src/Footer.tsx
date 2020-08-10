@@ -7,7 +7,8 @@ const Footer: FC<Props> = () => {
   return (
     <footer className="App__footer">
       Built by <a href="https://github.com/majeX">majeX</a>; v1.2.2.&nbsp;
-      <Link to="/changelog">Changelog</Link>
+      Email: <a href="mailto:majex.exe@gmail.com">majex.exe@gmail.com</a>.
+      &nbsp;<Link to="/changelog">Changelog</Link>
     </footer>
   );
 };
