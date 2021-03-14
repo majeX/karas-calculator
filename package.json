@@ -20,7 +20,7 @@
     "@types/react-tabs": "^2.3.1",
     "file-saver": "^2.0.2",
     "gh-pages": "^2.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.19",
     "numeral": "^2.0.6",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
