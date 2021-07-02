@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "e0df5e3b4b7054bb46d15f8677be7011",
+    "revision": "30b0bf93f04bc4605771b126c6e5a977",
     "url": "/karas-calculator/index.html"
   },
   {
-    "revision": "8bd93fe11e6e96ee7ba8",
+    "revision": "617aaf2753fe323a4552",
     "url": "/karas-calculator/static/css/main.44d0dcc9.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/karas-calculator/static/js/2.dc88e0c8.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8bd93fe11e6e96ee7ba8",
-    "url": "/karas-calculator/static/js/main.04e8a61d.chunk.js"
+    "revision": "617aaf2753fe323a4552",
+    "url": "/karas-calculator/static/js/main.aed829aa.chunk.js"
   },
   {
     "revision": "51257865e15c62821f7c",

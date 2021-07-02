@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/karas-calculator/static/css/main.44d0dcc9.chunk.css",
-    "main.js": "/karas-calculator/static/js/main.04e8a61d.chunk.js",
-    "main.js.map": "/karas-calculator/static/js/main.04e8a61d.chunk.js.map",
+    "main.js": "/karas-calculator/static/js/main.aed829aa.chunk.js",
+    "main.js.map": "/karas-calculator/static/js/main.aed829aa.chunk.js.map",
     "runtime-main.js": "/karas-calculator/static/js/runtime-main.87403b49.js",
     "runtime-main.js.map": "/karas-calculator/static/js/runtime-main.87403b49.js.map",
     "static/js/2.dc88e0c8.chunk.js": "/karas-calculator/static/js/2.dc88e0c8.chunk.js",
     "static/js/2.dc88e0c8.chunk.js.map": "/karas-calculator/static/js/2.dc88e0c8.chunk.js.map",
     "index.html": "/karas-calculator/index.html",
-    "precache-manifest.3e105576fa41b9dae07c405e71b113f4.js": "/karas-calculator/precache-manifest.3e105576fa41b9dae07c405e71b113f4.js",
+    "precache-manifest.8196d0a01bc5dabca26f1998540d9603.js": "/karas-calculator/precache-manifest.8196d0a01bc5dabca26f1998540d9603.js",
     "service-worker.js": "/karas-calculator/service-worker.js",
     "static/css/main.44d0dcc9.chunk.css.map": "/karas-calculator/static/css/main.44d0dcc9.chunk.css.map",
     "static/js/2.dc88e0c8.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.dc88e0c8.chunk.js.LICENSE.txt",
@@ -24,6 +24,6 @@
     "static/js/runtime-main.87403b49.js",
     "static/js/2.dc88e0c8.chunk.js",
     "static/css/main.44d0dcc9.chunk.css",
-    "static/js/main.04e8a61d.chunk.js"
+    "static/js/main.aed829aa.chunk.js"
   ]
 }
