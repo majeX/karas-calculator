@@ -23,6 +23,17 @@ const Changelog: FC<Props> = () => {
         <Link to="/" className="Changelog__back-to-calc">Назад в калькулятор</Link>
       </section>
       <section>
+        <h3>1.3</h3>
+        <ul>
+          <li>
+            Пофиксил ошибки деления чисел с плавающей точкой.
+          </li>
+          <li>
+            Убрал подсказки с "нулями" из полей, чтобы не смущать людей.
+          </li>
+        </ul>
+      </section>
+      <section>
         <h3>1.2.2</h3>
         <ul>
           <li>
