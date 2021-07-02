@@ -49,18 +49,18 @@ export const calculateAll = (multipliers: Array<number>, target: number) => {
     if (singular !== null) { singularResults.push({ x: singular, y: null, c1: mult, c2: null, c3: target } as Result) }
   }
 
-  const doubleResuls = [];
+  const doubleResults = [];
   for (let first = 0; first < multipliers.length - 1; first++) {
     const c1 = multipliers[first];
     for (let second = first + 1; second < multipliers.length; second++) {
       const c2 = multipliers[second];
-      doubleResuls.push(...calculate(c1, c2, target));
+      doubleResults.push(...calculate(c1, c2, target));
     }
   }
   const sortedSingular = singularResults.sort((first, second) => (
      first.x - second.x
   ));
-  const sortedDouble = doubleResuls.sort((first, second) => (
+  const sortedDouble = doubleResults.sort((first, second) => (
     (first.x + (first.y || 0)) - (second.x + (second.y || 0))
   ));
   return uniqWith([...sortedSingular, ...sortedDouble], isEqual);
