@@ -1,4 +1,5 @@
 import lodash, { uniqWith, isEqual } from 'lodash';
+import BigNumber from 'bignumber.js';
 import { PointsRows } from './Clanquest/Clanquest';
 
 type Result = { x: number, y: number | null, c1: number, c2: number | null, c3: number };
@@ -9,11 +10,15 @@ export const intOrEmpty = (value: string) => value === '' ? value : parseInt(val
 export const calculate: Calculator = (c1, c2, c3) => {
   if (c1 === 0) { return [] }
   if (c2 === 0) { return [] }
+
+  const bigC1 = new BigNumber(c1);
+  const bigC2 = new BigNumber(c2);
+  const bigC3 = new BigNumber(c3);
   const xMax = Math.floor(c3 / c1);
   const results = [];
 
   for (let x = 3; x <= xMax; x++) {
-    let y = c3 / c2 - (c1 / c2) * x;
+    let y = (bigC3.div(bigC2)).minus((bigC1.div(bigC2)).times(new BigNumber(x))).toNumber();
     if (Number.isInteger(y) && y > 2) {
       results.push({
         x,
@@ -29,7 +34,7 @@ export const calculate: Calculator = (c1, c2, c3) => {
 
 export const calculateSingular = (c1: number, c3: number) => {
   if (c1 === 0) { return null }
-  const result = c3 / c1;
+  const result = (new BigNumber(c3)).div(new BigNumber(c1)).toNumber();
   return Number.isInteger(result) ? result : null;
 };
 
