@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/karas-calculator/static/css/main.44d0dcc9.chunk.css",
-    "main.js": "/karas-calculator/static/js/main.aed829aa.chunk.js",
-    "main.js.map": "/karas-calculator/static/js/main.aed829aa.chunk.js.map",
+    "main.css": "/karas-calculator/static/css/main.e997234f.chunk.css",
+    "main.js": "/karas-calculator/static/js/main.a027a5ab.chunk.js",
+    "main.js.map": "/karas-calculator/static/js/main.a027a5ab.chunk.js.map",
     "runtime-main.js": "/karas-calculator/static/js/runtime-main.87403b49.js",
     "runtime-main.js.map": "/karas-calculator/static/js/runtime-main.87403b49.js.map",
     "static/js/2.dc88e0c8.chunk.js": "/karas-calculator/static/js/2.dc88e0c8.chunk.js",
     "static/js/2.dc88e0c8.chunk.js.map": "/karas-calculator/static/js/2.dc88e0c8.chunk.js.map",
     "index.html": "/karas-calculator/index.html",
-    "precache-manifest.8196d0a01bc5dabca26f1998540d9603.js": "/karas-calculator/precache-manifest.8196d0a01bc5dabca26f1998540d9603.js",
+    "precache-manifest.46c8d0eeba1ccbfaf102f1e5243341dc.js": "/karas-calculator/precache-manifest.46c8d0eeba1ccbfaf102f1e5243341dc.js",
     "service-worker.js": "/karas-calculator/service-worker.js",
-    "static/css/main.44d0dcc9.chunk.css.map": "/karas-calculator/static/css/main.44d0dcc9.chunk.css.map",
+    "static/css/main.e997234f.chunk.css.map": "/karas-calculator/static/css/main.e997234f.chunk.css.map",
     "static/js/2.dc88e0c8.chunk.js.LICENSE.txt": "/karas-calculator/static/js/2.dc88e0c8.chunk.js.LICENSE.txt",
     "static/media/after.jpeg": "/karas-calculator/static/media/after.57187826.jpeg",
     "static/media/before.jpeg": "/karas-calculator/static/media/before.e4af5731.jpeg",
@@ -23,7 +23,7 @@
   "entrypoints": [
     "static/js/runtime-main.87403b49.js",
     "static/js/2.dc88e0c8.chunk.js",
-    "static/css/main.44d0dcc9.chunk.css",
-    "static/js/main.aed829aa.chunk.js"
+    "static/css/main.e997234f.chunk.css",
+    "static/js/main.a027a5ab.chunk.js"
   ]
 }
