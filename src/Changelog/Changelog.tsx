@@ -23,6 +23,17 @@ const Changelog: FC<Props> = () => {
         <Link to="/" className="Changelog__back-to-calc">Назад в калькулятор</Link>
       </section>
       <section>
+        <h3>1.4</h3>
+        <ul>
+          <li>
+            Убрал теперь подсказки по-настоящему.
+          </li>
+          <li>
+            Сделал поля ввода множителей пошире по многочисленным просьбам читателей.
+          </li>
+        </ul>
+      </section>
+      <section>
         <h3>1.3</h3>
         <ul>
           <li>

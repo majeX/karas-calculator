@@ -40,7 +40,7 @@ const Form: React.FC<Props> = ({
         <input
           name="targetPoints"
           type="number"
-          placeholder="0"
+          placeholder=""
           value={targetPoints}
           onChange={(e) => onTargetPointsChange(intOrEmpty(e.target.value))}
         />
@@ -79,7 +79,7 @@ const Form: React.FC<Props> = ({
         <input
           name="adBonus"
           type="number"
-          placeholder="0"
+          placeholder=""
           value={adBonus}
           onChange={(e) => onAdBonusChange(intOrEmpty(e.target.value))}
         />
