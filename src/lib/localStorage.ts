@@ -4,6 +4,9 @@ const KEYS = [
   'adBonus',
   'questPoints',
   'pointsRows',
+  'pointsFormType',
+  'pointsScored',
+  'pointsGoal',
 ] as const;
 
 type SetValueAll = {

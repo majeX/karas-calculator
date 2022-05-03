@@ -34,3 +34,10 @@
   margin-right: 10px;
 }
 
+.b-Form__line--disabled {
+  opacity: .7;
+}
+
+.b-Form__line--disabled input {
+  cursor: not-allowed;
+}
