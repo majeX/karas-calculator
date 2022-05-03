@@ -76,6 +76,12 @@ const Form: React.FC<Props> = ({
     onTargetPointsChange(pointsToScoreToSet);
   }, [pointsFormType, pointsScored, pointsGoal, onTargetPointsChange, targetPoints]);
 
+  useEffect(() => {
+    if (pointsFormType !== PointsFormType.Classic) { return; }
+    if (targetPoints !== 0) { return; }
+    onTargetPointsChange('');
+  });
+
   const isPFTClassic = pointsFormType === PointsFormType.Classic;
 
   return (
