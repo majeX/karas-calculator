@@ -50,7 +50,6 @@ const Form: React.FC<Props> = ({
     setPointsScored(savedValues['pointsScored'] || '');
     setPointsGoal(savedValues['pointsGoal'] || '');
     setPointsFormType(savedPointsFormType);
-    console.log('I work once');
   }, [setPointsScored, setPointsGoal, ]);
 
   const changePointsFormType = useCallback((e) => {
@@ -61,11 +60,13 @@ const Form: React.FC<Props> = ({
   const onPointsScoredChange = useCallback((e) => {
     if (pointsFormType === PointsFormType.Classic) { return; }
     setPointsScored(intOrEmpty(e.target.value));
+    setLS({pointsScored: intOrEmpty(e.target.value) });
   }, [pointsFormType, setPointsScored])
 
   const onPointsGoalChange = useCallback((e) => {
     if (pointsFormType === PointsFormType.Classic) { return; }
     setPointsGoal(intOrEmpty(e.target.value));
+    setLS({pointsGoal: intOrEmpty(e.target.value) });
   }, [pointsFormType, setPointsGoal])
 
   useEffect(() => {
