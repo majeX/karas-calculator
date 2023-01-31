@@ -42,8 +42,3 @@
 .b-Form__line-gained-points {
   padding-bottom: 30px;
 }
-
-.b-Form__hint {
-  position: absolute;
-  bottom: calc(-1em - 5px);
-}
