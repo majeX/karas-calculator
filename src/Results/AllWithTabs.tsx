@@ -25,8 +25,6 @@ const AllWithTabs: FC<Props> = ({results}) => {
     return xLessThanMax && yLessThanMax && xCanBeCalculated && yCanBeCalculated;
   });
 
-  console.log(simpleResults);
-
   const simpleTabClassNames = ["b-Tabs__header"].concat([simpleResults.length === 0 ? "empty" : ""]).join(" ");
 
   return (
