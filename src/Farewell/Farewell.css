@@ -15,3 +15,7 @@
 .Farewell a {
   color: #61dafb;
 }
+
+.Farewell .App__attention {
+  color: plum;
+}
