@@ -25,10 +25,14 @@ const AllWithTabs: FC<Props> = ({results}) => {
     return xLessThanMax && yLessThanMax && xCanBeCalculated && yCanBeCalculated;
   });
 
+  console.log(simpleResults);
+
+  const simpleTabClassNames = ["b-Tabs__header"].concat([simpleResults.length === 0 ? "empty" : ""]).join(" ");
+
   return (
-    <Tabs className="b-Tabs">
+    <Tabs className="b-Tabs" defaultIndex={simpleResults.length === 0 ? 1 : 0}>
       <TabList className="b-Tabs__headers" >
-        <Tab className="b-Tabs__header" selectedClassName="active">Только слова без бонусов</Tab>
+        <Tab className={simpleTabClassNames} selectedClassName="active">Только слова без бонусов</Tab>
         <Tab className="b-Tabs__header" selectedClassName="active">Все слова</Tab>
       </TabList>
       <TabPanel>

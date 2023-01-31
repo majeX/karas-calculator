@@ -79,7 +79,10 @@ function App() {
       </div>
       <button
         className="App__submit"
-        onClick={() => calculateResults()}
+        onClick={() => {
+          resetCalc();
+          calculateResults()
+        }}
       >
         Рассчитать
       </button>

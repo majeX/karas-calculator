@@ -21,3 +21,8 @@
   font-weight: bold;
   color: rgb(204, 124, 23);
 }
+
+
+.b-Tabs__header.empty {
+  opacity: .7;
+}
