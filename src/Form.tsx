@@ -7,6 +7,9 @@ import { intOrEmpty } from './calculate';
 import './Form.css';
 
 type Props = {
+  gainedPoints: number | '',
+  onGainedPointsChange(value: number | ''): void,
+
   multipliers: Multipliers,
   onMultipliersChange(value: Multipliers): void,
 
@@ -18,6 +21,9 @@ type Props = {
 };
 
 const Form: React.FC<Props> = ({
+  gainedPoints,
+  onGainedPointsChange,
+
   targetPoints,
   onTargetPointsChange,
 
@@ -29,10 +35,23 @@ const Form: React.FC<Props> = ({
 }) => {
   const [numOfMultipliers, setNumOfMultipliers] = useState(0);
   useEffect(() => {
-    setNumOfMultipliers(Object.values(multipliers).length - 1);
+    const numOfMultipliers = Object.values(multipliers).length;
+    setNumOfMultipliers(numOfMultipliers ? numOfMultipliers - 1 : 0);
   }, [multipliers]);
   return (
     <div className="b-Form">
+      <div className="b-Form__line">
+        <div className="b-Form__caption">
+          Уже набрано
+        </div>
+        <input
+          name="gainedPoints"
+          type="number"
+          placeholder="0"
+          value={gainedPoints}
+          onChange={(e) => onGainedPointsChange(intOrEmpty(e.target.value))}
+        />
+      </div>
       <div className="b-Form__line">
         <div className="b-Form__caption">
           Сколько нужно набрать
@@ -54,18 +73,25 @@ const Form: React.FC<Props> = ({
             <MultiplierInput
               key={`mult-${id}`}
               id={id}
-              value={multipliers[id] === undefined ?  '' : multipliers[id]}
-              onChange={(value: number) => { onMultipliersChange({ ...multipliers, [id]: value }) }}
+              value={multipliers[id] === undefined ? '' : multipliers[id]}
+              onChange={(value: number) => {
+                onMultipliersChange({ ...multipliers, [id]: value })
+              }}
             />
           ))}
           <div
-            onClick={() => { setNumOfMultipliers(prevState => prevState + 1) }}
+            onClick={() => {
+              setNumOfMultipliers(prevState => prevState + 1)
+            }}
             className="b-Form__mult-plus"
           >
             +
           </div>
           <div
-            onClick={() => { setNumOfMultipliers(prevState => prevState - 1); onMultipliersChange(omit(multipliers, String(numOfMultipliers))); }}
+            onClick={() => {
+              setNumOfMultipliers(prevState => prevState - 1);
+              onMultipliersChange(omit(multipliers, String(numOfMultipliers)));
+            }}
             className="b-Form__mult-minus"
           >
             -

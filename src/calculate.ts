@@ -46,12 +46,13 @@ export const getAllMultipliers = (multipliers: Array<number>, bonus: number) => 
     .value()
 };
 
-export const calculateAll = (multipliers: Array<number>, target: number) => {
+export const calculateAll = (multipliers: Array<number>, gained: number, target: number) => {
   const singularResults = [];
+  const targetAdjusted = target - gained;
   for(let multIndex = 0; multIndex < multipliers.length; multIndex++) {
     const mult = multipliers[multIndex];
-    const singular = calculateSingular(mult, target);
-    if (singular !== null) { singularResults.push({ x: singular, y: null, c1: mult, c2: null, c3: target } as Result) }
+    const singular = calculateSingular(mult, targetAdjusted);
+    if (singular !== null) { singularResults.push({ x: singular, y: null, c1: mult, c2: null, c3: targetAdjusted } as Result) }
   }
 
   const doubleResults = [];
@@ -59,7 +60,7 @@ export const calculateAll = (multipliers: Array<number>, target: number) => {
     const c1 = multipliers[first];
     for (let second = first + 1; second < multipliers.length; second++) {
       const c2 = multipliers[second];
-      doubleResults.push(...calculate(c1, c2, target));
+      doubleResults.push(...calculate(c1, c2, targetAdjusted));
     }
   }
   const sortedSingular = singularResults.sort((first, second) => (

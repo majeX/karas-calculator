@@ -1,5 +1,6 @@
 const KEYS = [
   'multipliers',
+  'gainedPoints',
   'targetPoints',
   'adBonus',
   'questPoints',

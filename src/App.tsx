@@ -14,6 +14,7 @@ import Footer from './Footer';
 export type Multipliers = { [key: string]: number | '' };
 
 function App() {
+  const [gainedPoints, setGainedPoints] = useState<number | ''>('');
   const [targetPoints, setTargetPoints] = useState<number | ''>('');
   const [multipliers, setMultipliers] = useState<Multipliers>({});
   const [adBonus, setAdBonus] = useState<number | ''>('');
@@ -21,16 +22,15 @@ function App() {
   const [calcResults, setCalcResults] = useState<CalcResults>([]);
 
   const calculateResults = useCallback(() => {
-    if (adBonus === '') return;
     if (targetPoints === '') return;
     const multipliersArray = Object.values(multipliers);
     if (multipliersArray.length === 0) return;
     const filteredMultipliers = multipliersArray.filter(multiplier => multiplier !== '');
 
-    const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus);
-    const calculated = calculateAll(allMultipliers, targetPoints);
+    const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus || 0);
+    const calculated = calculateAll(allMultipliers, gainedPoints || 0, targetPoints);
     setCalcResults(calculated);
-  }, [adBonus, multipliers, targetPoints]);
+  }, [adBonus, multipliers, gainedPoints, targetPoints]);
 
   useEffect(() => {
     const savedValues = getAllLS();
@@ -39,6 +39,9 @@ function App() {
     }
     if (savedValues['adBonus']) {
       setAdBonus(savedValues['adBonus'])
+    }
+    if (savedValues['gainedPoints']) {
+      setGainedPoints(savedValues['gainedPoints'])
     }
     if (savedValues['targetPoints']) {
       setTargetPoints(savedValues['targetPoints'])
@@ -61,6 +64,9 @@ function App() {
       <Form
         multipliers={multipliers}
         onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }); resetCalc(); }}
+
+        gainedPoints={gainedPoints}
+        onGainedPointsChange={(value: number) => { setGainedPoints(value); setLS({ gainedPoints: value }) }}
 
         targetPoints={targetPoints}
         onTargetPointsChange={(value: number) => { setTargetPoints(value); setLS({ targetPoints: value }); resetCalc(); }}
