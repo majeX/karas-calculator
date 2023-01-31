@@ -34,3 +34,16 @@
   margin-right: 10px;
 }
 
+.b-Form__input-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.b-Form__line-gained-points {
+  padding-bottom: 30px;
+}
+
+.b-Form__hint {
+  position: absolute;
+  bottom: calc(-1em - 5px);
+}

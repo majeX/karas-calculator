@@ -40,17 +40,22 @@ const Form: React.FC<Props> = ({
   }, [multipliers]);
   return (
     <div className="b-Form">
-      <div className="b-Form__line">
+      <div className="b-Form__line b-Form__line-gained-points">
         <div className="b-Form__caption">
           Уже набрано
         </div>
-        <input
-          name="gainedPoints"
-          type="number"
-          placeholder="0"
-          value={gainedPoints}
-          onChange={(e) => onGainedPointsChange(intOrEmpty(e.target.value))}
-        />
+        <div className="b-Form__input-wrapper">
+          <input
+            name="gainedPoints"
+            type="number"
+            placeholder="0"
+            value={gainedPoints}
+            onChange={(e) => onGainedPointsChange(intOrEmpty(e.target.value))}
+          />
+          <div className="b-Form__hint">
+            Оставьте это поле пустым, чтобы калькулятор считал, как раньше
+          </div>
+        </div>
       </div>
       <div className="b-Form__line">
         <div className="b-Form__caption">
