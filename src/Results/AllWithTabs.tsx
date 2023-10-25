@@ -47,13 +47,13 @@ const AllWithTabs: FC<Props> = ({results}) => {
       </TabList>
       <TabPanel className="b-Tabs__content">
         <Results
-          results={results}
+          results={results.slice(0, 200)}
         />
       </TabPanel>
       <TabPanel className="b-Tabs__content">
         <Results
           useCache
-          results={simpleResults}
+          results={simpleResults.slice(0, 200)}
         />
       </TabPanel>
     </Tabs>

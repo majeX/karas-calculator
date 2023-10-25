@@ -38,7 +38,6 @@ const Clanquest: FC<Props> = () => {
   }, []);
 
   const calculated = calcQuestResults(questPoints, pointsRows);
-  console.log(questPoints, calculated);
 
   return (
     <div className="App b-Clanquest">

@@ -18,6 +18,7 @@ function App() {
   const [targetPoints, setTargetPoints] = useState<number | ''>('');
   const [multipliers, setMultipliers] = useState<Multipliers>({});
   const [adBonus, setAdBonus] = useState<number | ''>('');
+  const [isCalculating, setIsCalculating] = useState<boolean>(false);
 
   const [calcResults, setCalcResults] = useState<CalcResults>([]);
 
@@ -28,9 +29,14 @@ function App() {
     const filteredMultipliers = multipliersArray.filter(multiplier => multiplier !== '');
 
     const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus || 0);
-    const calculated = calculateAll(allMultipliers, gainedPoints || 0, targetPoints);
-    setCalcResults(calculated);
-  }, [adBonus, multipliers, gainedPoints, targetPoints]);
+    setIsCalculating(true);
+
+    setTimeout(() => {
+      const calculated = calculateAll(allMultipliers, gainedPoints || 0, targetPoints);
+      setCalcResults(calculated);
+      setIsCalculating(false);
+    }, 100);
+  }, [adBonus, multipliers, gainedPoints, targetPoints, isCalculating]);
 
   useEffect(() => {
     const savedValues = getAllLS();
@@ -84,9 +90,8 @@ function App() {
           calculateResults()
         }}
       >
-        Рассчитать
+        {isCalculating ? <span>Считаю, подождите</span> : <span>Рассчитать</span>}
       </button>
-
       <AllWithTabs
         results={calcResults}
       />
