@@ -36,7 +36,7 @@ function App() {
       setCalcResults(calculated);
       setIsCalculating(false);
     }, 100);
-  }, [adBonus, multipliers, gainedPoints, targetPoints, isCalculating]);
+  }, [adBonus, multipliers, gainedPoints, targetPoints]);
 
   useEffect(() => {
     const savedValues = getAllLS();
