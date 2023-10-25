@@ -2,6 +2,11 @@
   font-size: 1.2rem;
 }
 
+.ResultLine td {
+  padding: 4px 0;
+}
+
+
 .ResultLine__mult {
   color: rgb(204, 124, 23);
 }

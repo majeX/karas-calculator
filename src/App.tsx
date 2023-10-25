@@ -66,7 +66,7 @@ function App() {
         onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }); resetCalc(); }}
 
         gainedPoints={gainedPoints}
-        onGainedPointsChange={(value: number) => { setGainedPoints(value); setLS({ gainedPoints: value }) }}
+        onGainedPointsChange={(value: number) => { setGainedPoints(value); setLS({ gainedPoints: value }); resetCalc(); }}
 
         targetPoints={targetPoints}
         onTargetPointsChange={(value: number) => { setTargetPoints(value); setLS({ targetPoints: value }); resetCalc(); }}

@@ -26,22 +26,34 @@ const AllWithTabs: FC<Props> = ({results}) => {
   });
 
   const simpleTabClassNames = ["b-Tabs__header"].concat([simpleResults.length === 0 ? "empty" : ""]).join(" ");
+  const allTabClassNames = ["b-Tabs__header"].concat([results.length === 0 ? "empty" : ""]).join(" ");
 
   return (
-    <Tabs className="b-Tabs" defaultIndex={simpleResults.length === 0 ? 1 : 0}>
+    <Tabs className="b-Tabs" defaultIndex={0}>
       <TabList className="b-Tabs__headers" >
-        <Tab className={simpleTabClassNames} selectedClassName="active">Только слова без бонусов</Tab>
-        <Tab className="b-Tabs__header" selectedClassName="active">Все слова</Tab>
+        <Tab className={allTabClassNames} selectedClassName="active">
+          Все слова&nbsp;
+          <span className="b-Tabs__header-result-count">
+            ({results.length})
+          </span>
+        </Tab>
+        <Tab className={simpleTabClassNames} selectedClassName="active">
+          Только слова без бонусов&nbsp;
+          <span className="b-Tabs__header-result-count">
+            ({simpleResults.length})
+          </span>
+
+        </Tab>
       </TabList>
-      <TabPanel>
+      <TabPanel className="b-Tabs__content">
+        <Results
+          results={results}
+        />
+      </TabPanel>
+      <TabPanel className="b-Tabs__content">
         <Results
           useCache
           results={simpleResults}
-        />
-      </TabPanel>
-      <TabPanel>
-        <Results
-          results={results}
         />
       </TabPanel>
     </Tabs>
