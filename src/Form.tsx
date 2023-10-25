@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { omit } from 'lodash';
+import { omit } from 'radash';
 
 import MultiplierInput from './MultiplierInput';
 import { Multipliers } from './App';
@@ -38,6 +38,7 @@ const Form: React.FC<Props> = ({
     const numOfMultipliers = Object.values(multipliers).length;
     setNumOfMultipliers(numOfMultipliers ? numOfMultipliers - 1 : 0);
   }, [multipliers]);
+
   return (
     <div className="b-Form">
       <div className="b-Form__line b-Form__line-gained-points">
@@ -95,7 +96,7 @@ const Form: React.FC<Props> = ({
           <div
             onClick={() => {
               setNumOfMultipliers(prevState => prevState - 1);
-              onMultipliersChange(omit(multipliers, String(numOfMultipliers)));
+              onMultipliersChange(omit(multipliers, [String(numOfMultipliers)]));
             }}
             className="b-Form__mult-minus"
           >

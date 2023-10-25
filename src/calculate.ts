@@ -1,4 +1,4 @@
-import lodash, { uniqWith, isEqual } from 'lodash';
+import { unique, sort } from 'radash';
 import BigNumber from 'bignumber.js';
 import { PointsRows } from './Clanquest/Clanquest';
 
@@ -40,10 +40,8 @@ export const calculateSingular = (c1: number, c3: number) => {
 
 export const getAllMultipliers = (multipliers: Array<number>, bonus: number) => {
   const bonusMultipliers = multipliers.map(mult => mult + bonus);
-  return lodash([...multipliers, ...bonusMultipliers])
-    .sortBy()
-    .uniq()
-    .value()
+  const sorted =  sort([...multipliers, ...bonusMultipliers], mult => mult);
+  return unique(sorted);
 };
 
 export const calculateAll = (multipliers: Array<number>, gained: number, target: number) => {
@@ -69,7 +67,7 @@ export const calculateAll = (multipliers: Array<number>, gained: number, target:
   const sortedDouble = doubleResults.sort((first, second) => (
     (first.x + (first.y || 0)) - (second.x + (second.y || 0))
   ));
-  return uniqWith([...sortedSingular, ...sortedDouble], isEqual);
+  return unique([...sortedSingular, ...sortedDouble], result => `${result.x}-${result.y}-${result.c1}-${result.c2}-${result.c3}`);
 };
 export type CalcResults = ReturnType<typeof calculateAll>;
 
