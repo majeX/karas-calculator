@@ -83,3 +83,41 @@ export const calcQuestResults = (questPoints: number | '', pointRows: PointsRows
     pointsDiff: ((questPoints || 0) - pointsSum)
   }
 }
+
+/*
+// --- Proposed new, more performant functions ---
+
+// This version of `calculate` avoids using BigNumber for better performance.
+// It uses the modulo operator (%) to check for clean integer division,
+// which is much faster and still avoids floating-point inaccuracies.
+export const calculate2: Calculator = (c1, c2, c3) => {
+  if (c1 === 0 || c2 === 0) { return []; }
+
+  const results = [];
+  const xMax = Math.floor(c3 / c1);
+
+  for (let x = 3; x <= xMax; x++) {
+    const remainder = c3 - (x * c1);
+    if (remainder > 0 && remainder % c2 === 0) {
+      const y = remainder / c2;
+      if (y > 2) {
+        results.push({ x, y, c1, c2, c3 });
+      }
+    }
+  }
+  return results;
+};
+
+// This version of `calculateSingular` also uses the modulo operator
+// to ensure the result is an integer, which is more efficient.
+export const calculateSingular2 = (c1: number, c3: number) => {
+  if (c1 === 0) { return null; }
+
+  if (c3 % c1 === 0) {
+    const result = c3 / c1;
+    return result > 0 ? result : null;
+  }
+
+  return null;
+};
+*/
