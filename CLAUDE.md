@@ -62,10 +62,17 @@ This is a web application built with React that serves as a specialized calculat
 ## 8. Task Management
 
 - **`TASKS.md`:** This file is used to track features, broken down into smaller tasks. It is the central place to see what is currently being worked on, what is planned for the future, and what has already been completed.
+- **CRITICAL WORKFLOW RULE:** **ALWAYS update `TASKS.md` with progress, even for in-between steps and failed attempts.** This is essential to avoid losing progress and to maintain a clear record of what has been tried.
 - **Workflow:**
     1. Before starting a new feature, add it to the "Current Tasks" section of `TASKS.md`.
     2. Break the feature down into a checklist of smaller, actionable tasks.
-    3. As you complete each task, mark it as done by changing `[ ]` to `[x]`.
-    4. Once all tasks for a feature are complete, move the entire feature to the "Completed" section.
+    3. **IMPORTANT:** Update `TASKS.md` frequently during work:
+       - When starting a subtask, note the attempt in progress
+       - When encountering issues or errors, document what was tried and what failed
+       - When completing intermediate steps, mark progress even if the overall task isn't complete
+       - When switching approaches, document the reason and new approach
+    4. As you complete each task, mark it as done by changing `[ ]` to `[x]`.
+    5. Once all tasks for a feature are complete, move the entire feature to the "Completed" section.
+    6. **For failed attempts:** Move incomplete tasks to a "Attempted/Paused" section with detailed notes about what was tried, what failed, and potential next steps.
 - **`CLAUDE.md` Updates:** This `CLAUDE.md` file should be updated to reflect any major changes to the project's structure, dependencies, or workflow that are discovered while working on tasks.
 
