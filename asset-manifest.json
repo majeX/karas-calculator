@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/karas-calculator/static/css/main.f1ee33a6.css",
-    "main.js": "/karas-calculator/static/js/main.9988f6ee.js",
+    "main.css": "/karas-calculator/static/css/main.1e8ca288.css",
+    "main.js": "/karas-calculator/static/js/main.1c72a0ec.js",
     "static/media/results.png": "/karas-calculator/static/media/results.a1bf1e89e1edefa8fe60.png",
     "static/media/memo.jpg": "/karas-calculator/static/media/memo.637bc7f620ae85c8d74c.jpg",
     "static/media/after.jpeg": "/karas-calculator/static/media/after.08fabc496feac4a66b91.jpeg",
@@ -10,11 +10,11 @@
     "static/media/karas.svg": "/karas-calculator/static/media/karas.6f484631f4c65d67b83b357873ca1ef0.svg",
     "static/media/close-icon.svg": "/karas-calculator/static/media/close-icon.fa44e125de80ca5ac9e20d29134f58f4.svg",
     "index.html": "/karas-calculator/index.html",
-    "main.f1ee33a6.css.map": "/karas-calculator/static/css/main.f1ee33a6.css.map",
-    "main.9988f6ee.js.map": "/karas-calculator/static/js/main.9988f6ee.js.map"
+    "main.1e8ca288.css.map": "/karas-calculator/static/css/main.1e8ca288.css.map",
+    "main.1c72a0ec.js.map": "/karas-calculator/static/js/main.1c72a0ec.js.map"
   },
   "entrypoints": [
-    "static/css/main.f1ee33a6.css",
-    "static/js/main.9988f6ee.js"
+    "static/css/main.1e8ca288.css",
+    "static/js/main.1c72a0ec.js"
   ]
 }
