@@ -3,7 +3,7 @@ import { omit } from 'radash';
 
 import MultiplierInput from './MultiplierInput';
 import { Multipliers } from './App';
-import { intOrEmpty } from './calculate';
+import { intOrEmpty } from './calculate-new';
 import './Form.css';
 
 type Props = {

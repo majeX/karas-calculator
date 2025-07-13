@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CalcResults, calculateAll, getAllMultipliers } from './calculate';
+import { CalcResults, calculateAll, getAllMultipliers } from './calculate-new';
 import karas from './karas.svg';
 import './App.css';
 import Form from './Form';

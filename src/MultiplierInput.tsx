@@ -1,7 +1,7 @@
 import React from 'react';
 
 import "./MultiplierInput.css";
-import { intOrEmpty } from './calculate';
+import { intOrEmpty } from './calculate-new';
 
 type Props = {
   id: number,

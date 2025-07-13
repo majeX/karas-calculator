@@ -106,3 +106,6 @@ dist
 .idea/
 
 build/
+
+# Gemini context file
+GEMINI.md
