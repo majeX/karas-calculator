@@ -8,7 +8,7 @@ import { PointsRows } from './Clanquest/Clanquest';
 
 // Represents a single combination of multipliers found to reach the target.
 // Using more descriptive names than 'x', 'y', 'c1', etc.
-type Combination = {
+export type Combination = {
   multiplier1Count: number;
   multiplier2Count: number | null;
   multiplier1Value: number;

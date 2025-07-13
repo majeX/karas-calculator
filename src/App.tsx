@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 
-import { CalcResults, calculateAll, getAllMultipliers } from './calculate-new';
+import { Combination, calculateAll, getAllMultipliers } from './calculate-new';
 import karas from './karas.svg';
 import './App.css';
 import Form from './Form';
@@ -20,7 +20,7 @@ function App() {
   const [adBonus, setAdBonus] = useState<number | ''>('');
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
 
-  const [calcResults, setCalcResults] = useState<CalcResults>([]);
+  const [calcResults, setCalcResults] = useState<Combination[]>([]);
 
   const calculateResults = useCallback(() => {
     if (targetPoints === '') return;
