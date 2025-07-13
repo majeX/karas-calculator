@@ -19,6 +19,7 @@ function App() {
   const [multipliers, setMultipliers] = useState<Multipliers>({});
   const [adBonus, setAdBonus] = useState<number | ''>('');
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
+  const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
   const [calcResults, setCalcResults] = useState<Combination[]>([]);
 
@@ -30,11 +31,13 @@ function App() {
 
     const allMultipliers = getAllMultipliers(filteredMultipliers as number[], adBonus || 0);
     setIsCalculating(true);
+    setHasCalculated(false);
 
     setTimeout(() => {
       const calculated = calculateAll(allMultipliers, gainedPoints || 0, targetPoints);
       setCalcResults(calculated);
       setIsCalculating(false);
+      setHasCalculated(true);
     }, 100);
   }, [adBonus, multipliers, gainedPoints, targetPoints]);
 
@@ -56,6 +59,7 @@ function App() {
 
   const resetCalc = useCallback(() => {
     setCalcResults([]);
+    setHasCalculated(false);
   }, [setCalcResults]);
 
   // TODO make useLocalStorageCb
@@ -86,7 +90,6 @@ function App() {
       <button
         className="App__submit"
         onClick={() => {
-          resetCalc();
           calculateResults()
         }}
       >
@@ -94,6 +97,7 @@ function App() {
       </button>
       <AllWithTabs
         results={calcResults}
+        hasCalculated={hasCalculated}
       />
       <HintPopup />
       <Footer />

@@ -10,10 +10,14 @@ const MAX_SUM = 180;
 
 type Props = {
   results: Combination[],
+  hasCalculated: boolean,
 };
 
-const AllWithTabs: FC<Props> = ({results}) => {
+const AllWithTabs: FC<Props> = ({results, hasCalculated}) => {
   if (results.length === 0) {
+    if (hasCalculated) {
+      return <div className="b-Tabs__no-results">Не найдено комбинаций</div>;
+    }
     return null;
   }
 
