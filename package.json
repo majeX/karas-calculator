@@ -17,20 +17,20 @@
     "bignumber.js": "^9.0.1",
     "file-saver": "^2.0.2",
     "gh-pages": "^2.2.0",
-    "radash": "11.0.0",
     "numeral": "^2.0.6",
+    "radash": "11.0.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",
     "react-tabs": "^3.1.0",
-    "typescript": "~3.7.2"
+    "typescript": "^5.8.3"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
     "eject": "react-scripts eject",
     "predeploy": "yarn run build",
     "deploy": "gh-pages -d build"
@@ -49,5 +49,11 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "jest": "^30.0.4",
+    "ts-jest": "^29.4.0",
+    "ts-node": "^10.9.2"
   }
 }
