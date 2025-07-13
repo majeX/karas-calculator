@@ -6,10 +6,9 @@ import './Clanquest.css';
 import karas from '../karas.svg';
 import { calcQuestResults } from '../calculate';
 import { getAllLS, setLS } from '../lib/localStorage';
+import { PointsRows } from '../types/calculation-types';
 
 type Props = {};
-
-export type PointsRows = Array<{ points: number | '', people: number | '' }>;
 const getNewPointsRows = (pointsRows: PointsRows, indexToChange: number, updatedRow: PointsRows[0]) =>
   pointsRows.map((row, index) => (
     indexToChange === index

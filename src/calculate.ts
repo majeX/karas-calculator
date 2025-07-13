@@ -1,6 +1,6 @@
 import { unique, sort } from 'radash';
 import BigNumber from 'bignumber.js';
-import { PointsRows } from './Clanquest/Clanquest';
+import { PointsRows } from './types/calculation-types';
 
 type Result = { x: number, y: number | null, c1: number, c2: number | null, c3: number };
 type Calculator = (c1: number, c2: number, c3: number) => Array<Result>;

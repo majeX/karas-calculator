@@ -1,7 +1,7 @@
 // calculate-new.ts (Proposed Improvements)
 
 import { unique, sort } from 'radash';
-import { PointsRows } from './Clanquest/Clanquest';
+import { PointsRows } from './types/calculation-types';
 
 // --- Type Definitions ---
 // By defining all our types in one place, the code becomes more consistent and easier to understand.
