@@ -78,7 +78,7 @@ const SimpleResultLine: React.FC<{
   </tr>
 );
 
-const Wrapper: React.FC = ({ children }) => (
+const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <code>
     <table className="ResultLine__table">
       <tbody>
