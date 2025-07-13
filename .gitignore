@@ -110,3 +110,6 @@ build/
 # Gemini context file
 GEMINI.md
 TASKS.md
+
+# Claude context files
+.claude/
