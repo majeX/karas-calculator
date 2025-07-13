@@ -4,7 +4,7 @@ import numeral from 'numeral';
 
 import './Clanquest.css';
 import karas from '../karas.svg';
-import { calcQuestResults } from '../calculate';
+import { calcQuestResults } from '../calculate-new';
 import { getAllLS, setLS } from '../lib/localStorage';
 import { PointsRows } from '../types/calculation-types';
 
