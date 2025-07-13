@@ -1,7 +1,7 @@
 import React, { FC } from 'react';
 import { Tab, TabList, TabPanel, Tabs } from 'react-tabs';
 
-import { CalcResults } from '../calculate';
+import { Combination } from '../calculate-new';
 import Results from './Results';
 import { NON_CALCULATABLE } from '../calculateSimple';
 import './AllWithTabs.css';
@@ -9,19 +9,23 @@ import './AllWithTabs.css';
 const MAX_SUM = 180;
 
 type Props = {
-  results: CalcResults,
+  results: Combination[],
+  hasCalculated: boolean,
 };
 
-const AllWithTabs: FC<Props> = ({results}) => {
+const AllWithTabs: FC<Props> = ({results, hasCalculated}) => {
   if (results.length === 0) {
+    if (hasCalculated) {
+      return <div className="b-Tabs__no-results">Не найдено комбинаций</div>;
+    }
     return null;
   }
 
-  const simpleResults = results.filter(({ x, y }) => {
-    const xLessThanMax = x < MAX_SUM;
-    const yLessThanMax = y !== null ? y < MAX_SUM : true;
-    const xCanBeCalculated = !(NON_CALCULATABLE.includes(x));
-    const yCanBeCalculated = y !== null ? !(NON_CALCULATABLE.includes(y)) : true;
+  const simpleResults = results.filter(({ multiplier1Count, multiplier2Count }) => {
+    const xLessThanMax = multiplier1Count < MAX_SUM;
+    const yLessThanMax = multiplier2Count !== null ? multiplier2Count < MAX_SUM : true;
+    const xCanBeCalculated = !(NON_CALCULATABLE.includes(multiplier1Count));
+    const yCanBeCalculated = multiplier2Count !== null ? !(NON_CALCULATABLE.includes(multiplier2Count)) : true;
     return xLessThanMax && yLessThanMax && xCanBeCalculated && yCanBeCalculated;
   });
 

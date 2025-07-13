@@ -51,3 +51,11 @@
   background: #363b4b;
   padding: 20px 0 0 20px;
 }
+
+.b-Tabs__no-results {
+  padding: 20px;
+  text-align: center;
+  font-size: 1.2em;
+  color: #ccc;
+  background: #363b4b;
+}

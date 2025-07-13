@@ -10,16 +10,16 @@ import HintPopupCell from './HintPopupCell';
 type Props = {
 };
 
-const getHeader = ({x, y, c1, c2}: Partial<EventDetails>) => {
+const getHeader = ({multiplier1Count, multiplier2Count, multiplier1Value, multiplier2Value}: Partial<EventDetails>) => {
   const base = <th>
-    <span className="HintPopup__highlight-sum">{x}</span>
-    &nbsp;очков с множителем <span className="HintPopup__highlight-mult">{c1}</span>
+    <span className="HintPopup__highlight-sum">{multiplier1Count}</span>
+    &nbsp;очков с множителем <span className="HintPopup__highlight-mult">{multiplier1Value}</span>
   </th>
   let add: ReactNode = "";
-  if (y !== null) {
+  if (multiplier2Count !== null) {
     add = <th>
-      <span className="HintPopup__highlight-sum">{y}</span> очков с множителем
-      <span className="HintPopup__highlight-mult">&nbsp;{c2}</span>
+      <span className="HintPopup__highlight-sum">{multiplier2Count}</span> очков с множителем
+      <span className="HintPopup__highlight-mult">&nbsp;{multiplier2Value}</span>
     </th>
   }
   return <>
@@ -38,8 +38,8 @@ const HintPopup: FC<Props> = () => {
       }
     });
   }, [])
-  const x = sumDetails.x;
-  const y = sumDetails.y;
+  const x = sumDetails.multiplier1Count;
+  const y = sumDetails.multiplier2Count;
   if (!isActive || x === 0 || x === undefined) {
     return null;
   }

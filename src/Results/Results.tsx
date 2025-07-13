@@ -1,18 +1,18 @@
 import React, { MouseEvent } from 'react';
 
-import { CalcResults } from '../calculate';
+import { Combination } from '../calculate-new';
 import './Results.css';
 
 type Props = {
-  results: CalcResults,
+  results: Combination[],
   useCache?: boolean,
 };
 
 export type EventDetails = {
-  x: number,
-  c1: number,
-  y: number | null,
-  c2: number | null,
+  multiplier1Count: number,
+  multiplier1Value: number,
+  multiplier2Count: number | null,
+  multiplier2Value: number | null,
 }
 const showHintPopup = (event: MouseEvent<HTMLTableRowElement>) => {
   const target = event.currentTarget as HTMLTableRowElement;
@@ -21,7 +21,10 @@ const showHintPopup = (event: MouseEvent<HTMLTableRowElement>) => {
   const y = target.getAttribute('data-y') === null ? null : parseInt(target.getAttribute('data-y') || '0');
   const c2 = target.getAttribute('data-c2') === null ? null : parseInt(target.getAttribute('data-c2') || '0');
   const showPopupEvent = new CustomEvent<EventDetails>('openHint', { bubbles: true, detail: {
-    x, c1, y, c2
+    multiplier1Count: x,
+    multiplier1Value: c1,
+    multiplier2Count: y,
+    multiplier2Value: c2
   } });
   document.dispatchEvent(showPopupEvent);
 }
@@ -34,21 +37,21 @@ const ResultLine: React.FC<{
   <tr
     className="ResultLine ResultLine__clickable-row"
     onClick={showHintPopup}
-    data-x={result.x}
-    data-c1={result.c1}
-    data-y={result.y}
-    data-c2={result.c2}
+    data-x={result.multiplier1Count}
+    data-c1={result.multiplier1Value}
+    data-y={result.multiplier2Count}
+    data-c2={result.multiplier2Value}
   >
     <td className="ResultLine__clickable">
-      <span className="ResultLine__mult">{result.c1}x</span>
-      <span className="ResultLine__score">{result.x}</span>
+      <span className="ResultLine__mult">{result.multiplier1Value}x</span>
+      <span className="ResultLine__score">{result.multiplier1Count}</span>
     </td>
-    {result.y !== null ? (
+    {result.multiplier2Count !== null ? (
       <>
         <td><span>&nbsp;+&nbsp;</span></td>
         <td className="ResultLine__clickable">
-          <span className="ResultLine__mult">{result.c2}x</span>
-          <span className="ResultLine__score">{result.y}</span>
+          <span className="ResultLine__mult">{result.multiplier2Value}x</span>
+          <span className="ResultLine__score">{result.multiplier2Count}</span>
         </td>
       </>
     ) : <><td></td><td></td></>}
@@ -62,20 +65,20 @@ const SimpleResultLine: React.FC<{
 }) => (
   <tr className="ResultLine">
     <td>
-      <span className="ResultLine__mult">{result.c1}x</span>
-      <span className="ResultLine__score">{result.x}</span>
+      <span className="ResultLine__mult">{result.multiplier1Value}x</span>
+      <span className="ResultLine__score">{result.multiplier1Count}</span>
     </td>
-    {result.y !== null && (
+    {result.multiplier2Count !== null && (
       <td>
         <span>&nbsp;+&nbsp;</span>
-        <span className="ResultLine__mult">{result.c2}x</span>
-        <span className="ResultLine__score">{result.y}</span>
+        <span className="ResultLine__mult">{result.multiplier2Value}x</span>
+        <span className="ResultLine__score">{result.multiplier2Count}</span>
       </td>
     )}
   </tr>
 );
 
-const Wrapper: React.FC = ({ children }) => (
+const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
   <code>
     <table className="ResultLine__table">
       <tbody>

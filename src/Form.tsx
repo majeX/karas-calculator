@@ -3,7 +3,7 @@ import { omit } from 'radash';
 
 import MultiplierInput from './MultiplierInput';
 import { Multipliers } from './App';
-import { intOrEmpty } from './calculate';
+import { intOrEmpty } from './calculate-new';
 import './Form.css';
 
 type Props = {
@@ -42,11 +42,12 @@ const Form: React.FC<Props> = ({
   return (
     <div className="b-Form">
       <div className="b-Form__line b-Form__line-gained-points">
-        <div className="b-Form__caption">
+        <label htmlFor="gainedPoints" className="b-Form__caption">
           Уже набрано
-        </div>
+        </label>
         <div className="b-Form__input-wrapper">
           <input
+            id="gainedPoints"
             name="gainedPoints"
             type="number"
             placeholder="0"
@@ -59,10 +60,11 @@ const Form: React.FC<Props> = ({
         </div>
       </div>
       <div className="b-Form__line">
-        <div className="b-Form__caption">
+        <label htmlFor="targetPoints" className="b-Form__caption">
           Сколько нужно набрать
-        </div>
+        </label>
         <input
+          id="targetPoints"
           name="targetPoints"
           type="number"
           placeholder=""
@@ -105,10 +107,11 @@ const Form: React.FC<Props> = ({
         </div>
       </div>
       <div className="b-Form__line">
-        <div className="b-Form__caption">
+        <label htmlFor="adBonus" className="b-Form__caption">
           Бонус от рекламы
-        </div>
+        </label>
         <input
+          id="adBonus"
           name="adBonus"
           type="number"
           placeholder=""
