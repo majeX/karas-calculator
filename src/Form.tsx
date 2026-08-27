@@ -13,6 +13,9 @@ type Props = {
   multipliers: Multipliers,
   onMultipliersChange(value: Multipliers): void,
 
+  grailActive: boolean,
+  onGrailActiveChange(value: boolean): void,
+
   targetPoints: number | '',
   onTargetPointsChange(value: number | ''): void,
 
@@ -30,6 +33,9 @@ const Form: React.FC<Props> = ({
   multipliers,
   onMultipliersChange,
 
+  grailActive,
+  onGrailActiveChange,
+
   adBonus,
   onAdBonusChange,
 }) => {
@@ -38,6 +44,9 @@ const Form: React.FC<Props> = ({
     const numOfMultipliers = Object.values(multipliers).length;
     setNumOfMultipliers(numOfMultipliers ? numOfMultipliers - 1 : 0);
   }, [multipliers]);
+
+  const isGrailListEmpty = grailActive
+    && Object.values(multipliers).filter(multiplier => multiplier !== '').length === 0;
 
   return (
     <div className="b-Form">
@@ -70,6 +79,18 @@ const Form: React.FC<Props> = ({
           placeholder=""
           value={targetPoints}
           onChange={(e) => onTargetPointsChange(intOrEmpty(e.target.value))}
+        />
+      </div>
+      <div className="b-Form__line b-Form__line-grail">
+        <label htmlFor="grailActive" className="b-Form__caption">
+          У клана есть Грааль
+        </label>
+        <input
+          id="grailActive"
+          name="grailActive"
+          type="checkbox"
+          checked={grailActive}
+          onChange={(e) => onGrailActiveChange(e.target.checked)}
         />
       </div>
       <div className="b-Form__line">
@@ -106,6 +127,13 @@ const Form: React.FC<Props> = ({
           </div>
         </div>
       </div>
+      {isGrailListEmpty && (
+        <div className="b-Form__hint b-Form__hint-grail">
+          Введите множители, которые показывает игра, пока Грааль активен.
+          Пересчитать их из обычных множителей нельзя — игра округляет,
+          и результат разойдётся на единицу.
+        </div>
+      )}
       <div className="b-Form__line">
         <label htmlFor="adBonus" className="b-Form__caption">
           Бонус от рекламы

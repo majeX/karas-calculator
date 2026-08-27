@@ -1,5 +1,7 @@
 const KEYS = [
   'multipliers',
+  'grailMultipliers',
+  'grailActive',
   'gainedPoints',
   'targetPoints',
   'adBonus',
