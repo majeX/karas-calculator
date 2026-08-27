@@ -108,9 +108,9 @@ dist
 build/
 
 # Gemini context file
-GEMINI.md
-TASKS.md
 
 # Claude context files
-.claude/
-CLAUDE.md
+.claude/*
+!.claude/settings.json
+!.claude/hooks/
+.claude/settings.local.json
