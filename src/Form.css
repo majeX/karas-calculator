@@ -38,3 +38,20 @@
   position: relative;
   width: 100%;
 }
+
+.b-Form__line-grail .b-Form__caption {
+  flex-shrink: 0;
+}
+
+.b-Form__line-grail input[type="checkbox"] {
+  width: 24px;
+  height: 24px;
+  flex-shrink: 0;
+  margin: 0;
+}
+
+.b-Form__hint-grail {
+  padding: 0 0 7px 0;
+  font-size: 1.1rem;
+  line-height: 1.3;
+}

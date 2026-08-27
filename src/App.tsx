@@ -17,15 +17,21 @@ function App() {
   const [gainedPoints, setGainedPoints] = useState<number | ''>('');
   const [targetPoints, setTargetPoints] = useState<number | ''>('');
   const [multipliers, setMultipliers] = useState<Multipliers>({});
+  const [grailMultipliers, setGrailMultipliers] = useState<Multipliers>({});
+  const [grailActive, setGrailActive] = useState<boolean>(false);
   const [adBonus, setAdBonus] = useState<number | ''>('');
   const [isCalculating, setIsCalculating] = useState<boolean>(false);
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
   const [calcResults, setCalcResults] = useState<Combination[]>([]);
 
+  // The two lists are kept separately: the game rounds the clan multiplier after
+  // applying the Grail bonus, so the Grail values can't be derived from the base ones.
+  const activeMultipliers = grailActive ? grailMultipliers : multipliers;
+
   const calculateResults = useCallback(() => {
     if (targetPoints === '') return;
-    const multipliersArray = Object.values(multipliers);
+    const multipliersArray = Object.values(activeMultipliers);
     if (multipliersArray.length === 0) return;
     const filteredMultipliers = multipliersArray.filter(multiplier => multiplier !== '');
 
@@ -39,20 +45,28 @@ function App() {
       setIsCalculating(false);
       setHasCalculated(true);
     }, 100);
-  }, [adBonus, multipliers, gainedPoints, targetPoints]);
+  }, [adBonus, activeMultipliers, gainedPoints, targetPoints]);
 
   useEffect(() => {
     const savedValues = getAllLS();
-    if (savedValues['multipliers']) {
+    // Guard on `undefined`, not truthiness: 0 and '' are values a player can
+    // legitimately have typed, and dropping them silently empties the field.
+    if (savedValues['multipliers'] !== undefined) {
       setMultipliers(savedValues['multipliers'])
     }
-    if (savedValues['adBonus']) {
+    if (savedValues['grailMultipliers'] !== undefined) {
+      setGrailMultipliers(savedValues['grailMultipliers'])
+    }
+    if (savedValues['grailActive'] !== undefined) {
+      setGrailActive(savedValues['grailActive'])
+    }
+    if (savedValues['adBonus'] !== undefined) {
       setAdBonus(savedValues['adBonus'])
     }
-    if (savedValues['gainedPoints']) {
+    if (savedValues['gainedPoints'] !== undefined) {
       setGainedPoints(savedValues['gainedPoints'])
     }
-    if (savedValues['targetPoints']) {
+    if (savedValues['targetPoints'] !== undefined) {
       setTargetPoints(savedValues['targetPoints'])
     }
   }, []);
@@ -72,8 +86,18 @@ function App() {
       </header>
 
       <Form
-        multipliers={multipliers}
-        onMultipliersChange={(value: Multipliers) => { setMultipliers(value); setLS({ multipliers: value }); resetCalc(); }}
+        multipliers={activeMultipliers}
+        onMultipliersChange={(value: Multipliers) => {
+          if (grailActive) {
+            setGrailMultipliers(value); setLS({ grailMultipliers: value });
+          } else {
+            setMultipliers(value); setLS({ multipliers: value });
+          }
+          resetCalc();
+        }}
+
+        grailActive={grailActive}
+        onGrailActiveChange={(value: boolean) => { setGrailActive(value); setLS({ grailActive: value }); resetCalc(); }}
 
         gainedPoints={gainedPoints}
         onGainedPointsChange={(value: number) => { setGainedPoints(value); setLS({ gainedPoints: value }); resetCalc(); }}
