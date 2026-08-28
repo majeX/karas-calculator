@@ -114,3 +114,6 @@ build/
 !.claude/settings.json
 !.claude/hooks/
 .claude/settings.local.json
+
+# This project installs with bun; bun.lock is the lockfile of record.
+package-lock.json
