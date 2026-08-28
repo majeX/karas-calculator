@@ -1,0 +1,21 @@
+version: 2
+updates:
+  # The project installs with bun; bun.lock is the lockfile that is actually
+  # read. Dependabot's "bun" ecosystem is separate from "npm" and is the only
+  # one that will update bun.lock.
+  #
+  # Note: the bun ecosystem supports version updates only — Dependabot does
+  # NOT open security-update PRs for it. Dependabot alerts still surface
+  # vulnerabilities; acting on them here is manual.
+  - package-ecosystem: "bun"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+    open-pull-requests-limit: 5
+    groups:
+      # Nearly every dependency is transitive under react-scripts, so
+      # ungrouped patch bumps generate a lot of near-identical PRs.
+      minor-and-patch:
+        update-types:
+          - "minor"
+          - "patch"
