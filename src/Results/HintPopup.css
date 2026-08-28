@@ -1,3 +1,13 @@
+.HintPopup__backdrop {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 9;
+  background-color: rgba(0, 0, 0, .6);
+}
+
 .HintPopup {
   position: fixed;
   top: 25px;
@@ -9,29 +19,46 @@
   border: 2px black solid;
   padding: 15px;
   background-color: #444958;
+  /* Column layout so the scroll area is sized by what's left over. The old
+     `height: calc(100vh - 50px)` ignored this padding and the 25px insets, so
+     the list ran 17px past the popup and `overflow: hidden` sheared it off. */
+  display: flex;
+  flex-direction: column;
   overflow: hidden;
 }
 
+.HintPopup__bar {
+  display: flex;
+  justify-content: flex-end;
+  flex-shrink: 0;
+}
+
 .HintPopup__content {
-  height: calc(100vh - 50px);
-  overflow: scroll;
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .HintPopup__close {
-  position: absolute;
-  top: 0;
-  right: 0;
+  background: none;
+  border: 0;
+  /* 28px icon + padding clears the 44px touch target. */
+  padding: 10px;
+  margin: -10px -10px 0 0;
+  cursor: pointer;
+  line-height: 0;
 }
 
 .HintPopup__close-icon {
-  padding: 15px;
-  cursor: pointer;
-  width: 60px;
+  width: 28px;
+  display: block;
 }
 
 .HintPopup__table thead th {
   font-size: 1.2rem;
   padding-bottom: 15px;
+  text-align: left;
 }
 
 .HintPopup__table td {

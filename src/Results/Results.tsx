@@ -5,7 +5,9 @@ import './Results.css';
 
 type Props = {
   results: Combination[],
-  useCache?: boolean,
+  // Only sums that survive the NON_CALCULATABLE filter have a `cache` entry to
+  // pop open, so only that tab's rows are tappable.
+  clickable?: boolean,
 };
 
 export type EventDetails = {
@@ -29,7 +31,7 @@ const showHintPopup = (event: MouseEvent<HTMLTableRowElement>) => {
   document.dispatchEvent(showPopupEvent);
 }
 
-const ResultLine: React.FC<{
+const ClickableResultLine: React.FC<{
   result: Props['results'][0],
 }> = ({
   result,
@@ -58,7 +60,7 @@ const ResultLine: React.FC<{
   </tr>
 );
 
-const SimpleResultLine: React.FC<{
+const PlainResultLine: React.FC<{
   result: Props['results'][0],
 }> = ({
   result,
@@ -90,13 +92,13 @@ const Wrapper: React.FC<{ children: React.ReactNode }> = ({ children }) => (
 
 const Results: React.FC<Props> = ({
   results,
-  useCache = false,
+  clickable = false,
 }) => {
-  if (useCache) {
+  if (clickable) {
     return (
       <Wrapper>
         {results.map(result => (
-          <ResultLine result={result} key={Object.values(result).join(", ")} />
+          <ClickableResultLine result={result} key={Object.values(result).join(", ")} />
         ))}
       </Wrapper>
     )
@@ -105,7 +107,7 @@ const Results: React.FC<Props> = ({
   return (
     <Wrapper>
       {results.map(result => (
-        <SimpleResultLine result={result} key={Object.values(result).join(", ")} />
+        <PlainResultLine result={result} key={Object.values(result).join(", ")} />
       ))}
     </Wrapper>
   )

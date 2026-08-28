@@ -1,4 +1,4 @@
-import React, { FC, ReactNode, useEffect, useState } from 'react';
+import React, { FC, ReactNode, useCallback, useEffect, useState } from 'react';
 
 import './HintPopup.css';
 import './HintCell.css'
@@ -30,14 +30,40 @@ const getHeader = ({multiplier1Count, multiplier2Count, multiplier1Value, multip
 const HintPopup: FC<Props> = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const [sumDetails, setSumDetails] = useState<Partial<EventDetails>>({});
+
+  const close = useCallback(() => {
+    setIsActive(false);
+    setSumDetails({});
+  }, []);
+
   useEffect(() => {
-    document.addEventListener('openHint', (e: CustomEventInit<EventDetails>) => {
+    const onOpenHint = (e: CustomEventInit<EventDetails>) => {
       if (e.detail) {
         setIsActive(true);
         setSumDetails(e.detail);
       }
-    });
+    };
+    document.addEventListener('openHint', onOpenHint);
+    return () => document.removeEventListener('openHint', onOpenHint);
   }, [])
+
+  // Esc closes, and the page behind stops scrolling while the sheet is up —
+  // otherwise a phone scrolls the results under the popup instead of the list
+  // inside it.
+  useEffect(() => {
+    if (!isActive) return;
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') { close(); }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isActive, close])
+
   const x = sumDetails.multiplier1Count;
   const y = sumDetails.multiplier2Count;
   if (!isActive || x === 0 || x === undefined) {
@@ -55,31 +81,40 @@ const HintPopup: FC<Props> = () => {
   const doubleColumn = y !== null && y !== undefined;
 
   return (
-    <div className="HintPopup">
-      <div className="HintPopup__content">
-        <table className="HintPopup__table">
-          <thead>
-            <tr>
-              {getHeader(sumDetails)}
-            </tr>
-          </thead>
-          <tbody>
-            {Array(rowsLength).fill(0).map((_, id) => (
-              <tr key={`${id}-${rowsLength}-${x}-${y}`}>
-                <HintPopupCell key={`${id}-x`} row={cachedCalculationsX[id]} />
-                {doubleColumn && (
-                  <HintPopupCell key={`${id}-y`} row={cachedCalculationsY[id]}/>
-                )}
+    <>
+      <div className="HintPopup__backdrop" onClick={close} />
+      <div className="HintPopup" role="dialog" aria-modal="true">
+        <div className="HintPopup__bar">
+          <button
+            type="button"
+            className="HintPopup__close"
+            aria-label="Закрыть"
+            onClick={close}
+          >
+            <img src={closeIcon} alt="" className="HintPopup__close-icon" />
+          </button>
+        </div>
+        <div className="HintPopup__content">
+          <table className="HintPopup__table">
+            <thead>
+              <tr>
+                {getHeader(sumDetails)}
               </tr>
-            ))}
-          </tbody>
-        </table>
+            </thead>
+            <tbody>
+              {Array(rowsLength).fill(0).map((_, id) => (
+                <tr key={`${id}-${rowsLength}-${x}-${y}`}>
+                  <HintPopupCell key={`${id}-x`} row={cachedCalculationsX[id]} />
+                  {doubleColumn && (
+                    <HintPopupCell key={`${id}-y`} row={cachedCalculationsY[id]}/>
+                  )}
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
       </div>
-      <div className="HintPopup__close" onClick={() => {
-        setIsActive(false);
-        setSumDetails({});
-      }}><img src={closeIcon} alt="Close icon" className="HintPopup__close-icon" /></div>
-    </div>
+    </>
   );
 };
 

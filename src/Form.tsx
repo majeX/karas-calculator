@@ -40,6 +40,10 @@ const Form: React.FC<Props> = ({
   onAdBonusChange,
 }) => {
   const [numOfMultipliers, setNumOfMultipliers] = useState(0);
+  // Only the field the player just added should take focus. Focusing every
+  // field on mount popped the keyboard open on page load and again on each
+  // re-render of the list.
+  const [focusIndex, setFocusIndex] = useState<number | null>(null);
   useEffect(() => {
     const numOfMultipliers = Object.values(multipliers).length;
     setNumOfMultipliers(numOfMultipliers ? numOfMultipliers - 1 : 0);
@@ -59,6 +63,7 @@ const Form: React.FC<Props> = ({
             id="gainedPoints"
             name="gainedPoints"
             type="number"
+            inputMode="numeric"
             placeholder="0"
             value={gainedPoints}
             onChange={(e) => onGainedPointsChange(intOrEmpty(e.target.value))}
@@ -76,6 +81,7 @@ const Form: React.FC<Props> = ({
           id="targetPoints"
           name="targetPoints"
           type="number"
+          inputMode="numeric"
           placeholder=""
           value={targetPoints}
           onChange={(e) => onTargetPointsChange(intOrEmpty(e.target.value))}
@@ -103,28 +109,35 @@ const Form: React.FC<Props> = ({
               key={`mult-${id}`}
               id={id}
               value={multipliers[id] === undefined ? '' : multipliers[id]}
+              autoFocus={id === focusIndex}
               onChange={(value: number) => {
                 onMultipliersChange({ ...multipliers, [id]: value })
               }}
             />
           ))}
-          <div
+          <button
+            type="button"
+            aria-label="Добавить множитель"
             onClick={() => {
-              setNumOfMultipliers(prevState => prevState + 1)
+              setNumOfMultipliers(prevState => prevState + 1);
+              setFocusIndex(numOfMultipliers + 1);
             }}
             className="b-Form__mult-plus"
           >
             +
-          </div>
-          <div
+          </button>
+          <button
+            type="button"
+            aria-label="Убрать последний множитель"
             onClick={() => {
               setNumOfMultipliers(prevState => prevState - 1);
+              setFocusIndex(null);
               onMultipliersChange(omit(multipliers, [String(numOfMultipliers)]));
             }}
             className="b-Form__mult-minus"
           >
             -
-          </div>
+          </button>
         </div>
       </div>
       {isGrailListEmpty && (
@@ -142,6 +155,7 @@ const Form: React.FC<Props> = ({
           id="adBonus"
           name="adBonus"
           type="number"
+          inputMode="numeric"
           placeholder=""
           value={adBonus}
           onChange={(e) => onAdBonusChange(intOrEmpty(e.target.value))}

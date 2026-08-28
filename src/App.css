@@ -1,9 +1,13 @@
 .App {
   background-color: #282c34;
   color: white;
-  height: 100vh;
+  /* Not `height: 100vh` + `overflow-x: hidden`: that combination makes the
+     browser compute `overflow-y: auto`, turning .App into a nested scroll
+     container. On mobile that pins the URL bar open and kills momentum
+     scrolling. The page itself scrolls now; body clips the x axis. */
+  min-height: 100vh;
+  min-height: 100dvh;
   padding: 20px;
-  overflow-x: hidden;
 }
 
 .App * {
@@ -49,21 +53,46 @@
   border-radius: 5px;
   border: 1px solid #000;
   font-size: 1.4rem;
-  height: 40px;
+  height: 44px;
   padding: 7px;
   box-sizing: border-box;
   width: 100%;
 }
 
+/* The spinner arrows eat ~15px of an already narrow multiplier field, and
+   nobody nudges a multiplier one step at a time on a phone. */
+.App input[type="number"] {
+  -moz-appearance: textfield;
+  appearance: textfield;
+}
+
+.App input[type="number"]::-webkit-outer-spin-button,
+.App input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
 .App__submit {
   margin: 20px 0;
-  height: 40px;
+  min-height: 48px;
   font-size: 1.4rem;
+  width: 100%;
+  max-width: 400px;
+  border-radius: 5px;
+  border: 1px solid #000;
+  cursor: pointer;
+}
+
+.App__submit:disabled {
+  opacity: .7;
+  cursor: default;
 }
 
 .App__memo-link {
   color: inherit;
   font-size: 1.4rem;
+  display: inline-block;
+  padding: 9px 0;
 }
 
 .App__memo-link::after {

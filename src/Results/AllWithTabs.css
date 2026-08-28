@@ -11,27 +11,42 @@
 }
 
 .b-Tabs__header {
-  font-size: 1.4rem;
+  /* Equal shares of the row. The old `padding: 10px 30px` overflowed the strip
+     by ~32px at 360px wide, and .App clipped it rather than scrolling it. */
+  flex: 1 1 0;
+  min-width: 0;
+  font-size: 1.2rem;
   cursor: pointer;
-  padding: 10px 30px;
+  padding: 12px 10px;
+  min-height: 48px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
 
   position: relative;
-  border-right: 0.125rem solid #666;
   color: #fff;
   top: 0;
   transition: all 0.25s;
 }
 
-.b-Tabs__header:hover {
-  top: -0.25rem;
-  transition: top 0.25s;
+.b-Tabs__header + .b-Tabs__header {
+  border-left: 0.125rem solid #666;
+}
+
+/* Tap has no hover state to leave behind; a phone would keep the lifted tab
+   stuck up until the next tap elsewhere. */
+@media (hover: hover) {
+  .b-Tabs__header:hover {
+    top: -0.25rem;
+    transition: top 0.25s;
+  }
 }
 
 .b-Tabs__header.active {
   font-weight: bold;
   background: #363b4b;
   border-bottom: 0;
-  border-right: 0.125rem solid #fff;
   transition: all 0.35s;
   top: -0.0625rem;
 }
@@ -49,7 +64,25 @@
 
 .b-Tabs__content {
   background: #363b4b;
-  padding: 20px 0 0 20px;
+  padding: 16px;
+}
+
+.b-Tabs__legend {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #b8bdc9;
+  padding-bottom: 12px;
+}
+
+.b-Tabs__legend-mult {
+  color: rgb(204, 124, 23);
+}
+
+.b-Tabs__truncated {
+  font-size: 1rem;
+  line-height: 1.35;
+  color: #b8bdc9;
+  padding-top: 14px;
 }
 
 .b-Tabs__no-results {

@@ -12,7 +12,8 @@
 }
 
 .ResultLine__clickable {
-  padding: 10px;
+  /* A row is the tap target, so give it a finger's worth of height. */
+  padding: 12px 10px;
   border-radius: 4px;
 }
 
@@ -23,4 +24,8 @@
 .ResultLine__clickable-row {
   border: #999999 1px dashed;
   cursor: pointer;
+}
+
+.ResultLine__clickable-row:active {
+  background-color: #444958;
 }

@@ -1,5 +1,8 @@
 body {
   margin: 0;
+  /* Matches .App so iOS overscroll bounce shows the app colour, not white. */
+  background-color: #282c34;
+  overflow-x: hidden;
   font-family: 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;

@@ -1,4 +1,4 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
 import { Link } from 'react-router-dom';
 
 import { Combination, calculateAll, getAllMultipliers } from './calculate-new';
@@ -24,6 +24,7 @@ function App() {
   const [hasCalculated, setHasCalculated] = useState<boolean>(false);
 
   const [calcResults, setCalcResults] = useState<Combination[]>([]);
+  const resultsRef = useRef<HTMLDivElement>(null);
 
   // The two lists are kept separately: the game rounds the clan multiplier after
   // applying the Grail bonus, so the Grail values can't be derived from the base ones.
@@ -71,6 +72,12 @@ function App() {
     }
   }, []);
 
+  useEffect(() => {
+    if (!hasCalculated) return;
+    // Optional call: jsdom has no scrollIntoView.
+    resultsRef.current?.scrollIntoView?.({ behavior: 'smooth', block: 'start' });
+  }, [hasCalculated]);
+
   const resetCalc = useCallback(() => {
     setCalcResults([]);
     setHasCalculated(false);
@@ -113,16 +120,19 @@ function App() {
       </div>
       <button
         className="App__submit"
+        disabled={isCalculating}
         onClick={() => {
           calculateResults()
         }}
       >
         {isCalculating ? <span>Считаю, подождите</span> : <span>Рассчитать</span>}
       </button>
-      <AllWithTabs
-        results={calcResults}
-        hasCalculated={hasCalculated}
-      />
+      <div ref={resultsRef}>
+        <AllWithTabs
+          results={calcResults}
+          hasCalculated={hasCalculated}
+        />
+      </div>
       <HintPopup />
       <Footer />
     </div>

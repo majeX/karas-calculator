@@ -15,23 +15,23 @@
 .b-Form__multipliers {
   display: flex;
   flex-wrap: wrap;
+  gap: 10px;
 }
 
 .b-Form__mult-plus,
 .b-Form__mult-minus {
-  width: 40px;
-  height: 40px;
-  line-height: 36px;
+  width: 44px;
+  height: 44px;
   background-color: #999999;
+  color: #000;
   border-radius: 5px;
   border: 1px solid #000;
-  padding: 1px;
+  padding: 0;
   cursor: pointer;
   font-size: 24px;
   font-weight: bolder;
   font-family: monospace;
   text-align: center;
-  margin-right: 10px;
 }
 
 .b-Form__input-wrapper {
@@ -44,14 +44,42 @@
 }
 
 .b-Form__line-grail input[type="checkbox"] {
-  width: 24px;
-  height: 24px;
+  width: 28px;
+  height: 28px;
   flex-shrink: 0;
   margin: 0;
 }
 
-.b-Form__hint-grail {
-  padding: 0 0 7px 0;
+.b-Form__hint {
+  padding-top: 6px;
   font-size: 1.1rem;
   line-height: 1.3;
+  color: #b8bdc9;
+}
+
+.b-Form__hint-grail {
+  padding: 0 0 7px 0;
+}
+
+/* Phones: a side-by-side label steals width from the field and wraps to three
+   lines doing it. Stack instead, so the input gets the full column. */
+@media (max-width: 600px) {
+  .b-Form__line {
+    display: block;
+    padding: 10px 0;
+  }
+
+  .b-Form__caption {
+    display: block;
+    padding: 0 0 6px 0;
+  }
+
+  .b-Form__line-grail {
+    display: flex;
+    align-items: center;
+  }
+
+  .b-Form__line-grail .b-Form__caption {
+    padding: 0 15px 0 0;
+  }
 }
