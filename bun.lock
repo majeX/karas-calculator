@@ -1,5 +1,6 @@
 {
   "lockfileVersion": 1,
+  "configVersion": 0,
   "workspaces": {
     "": {
       "name": "karas-calculator",
@@ -8,7 +9,7 @@
         "@types/file-saver": "^2.0.1",
         "@types/node": "^12.0.0",
         "@types/numeral": "^0.0.28",
-        "@types/react-tabs": "^2.3.1",
+        "@types/react-tabs": "^5.0.5",
         "bignumber.js": "^9.0.1",
         "file-saver": "^2.0.2",
         "numeral": "^2.0.6",
@@ -601,7 +602,7 @@
 
     "@types/react-dom": ["@types/react-dom@18.3.7", "", { "peerDependencies": { "@types/react": "^18.0.0" } }, "sha512-MEe3UeoENYVFXzoXEWsvcpg6ZvlrFNlOQ7EOsvhI3CfAXwzPfO8Qwuxd40nepsYKqyyVQnTdEfv68q91yLcKrQ=="],
 
-    "@types/react-tabs": ["@types/react-tabs@2.3.4", "", { "dependencies": { "@types/react": "*" } }, "sha512-HQzhKW+RF/7h14APw/2cu4Nnt+GmsTvfBKbFdn/NbYpb8Q+iB65wIkPHz4VRKDxWtOpNFpOUtzt5r0LRmQMfOA=="],
+    "@types/react-tabs": ["@types/react-tabs@5.0.5", "", { "dependencies": { "react-tabs": "*" } }, "sha512-3CZTmjR7nNrZnYbnxp/DtK5e82mhM22dN47aYObmYLcp9fC1XjIEF0mLzGKFl1fR6/R8X7DyGh9hO6lON6LVkQ=="],
 
     "@types/resolve": ["@types/resolve@1.17.1", "", { "dependencies": { "@types/node": "*" } }, "sha512-yy7HuzQhj0dhGpD8RLXSZWEkLsV9ibvxvi6EiJ3bkqLAO1RGo0WbkWQiwpRlSFymTJRz0d3k5LM3kkx8ArDbLw=="],
 
